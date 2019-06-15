@@ -19,5 +19,6 @@ namespace pricingCDR
             Application.Run(new Form1());
         }
 
+
     }
 }
