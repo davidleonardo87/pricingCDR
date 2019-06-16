@@ -43,14 +43,28 @@ namespace pricingCDR.Formularios
                         this.dataGridViewOnTime.Rows.Add();
                         this.dataGridViewOnTime.Rows[c].Cells[0].Value = servicio.Descripcion;
                         this.dataGridViewOnTime.Rows[c].Cells[0].Tag = servicio;
-                        c++;
+                        c ++;
+                        
                     }
-
+                    this.dataGridViewOnTime.AutoResizeColumns();
+                    this.dataGridViewOnTime.ClearSelection();
                 }
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+        }
+
+        private void dataGridViewOnTime_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var grid = sender as DataGridView;
+            var cell = grid[e.ColumnIndex, e.RowIndex];
+            if (cell.Tag == null)
+            {
+                return;
+            }
+            Tablas.Servicio servicio = cell.Tag as Tablas.Servicio;
+            
         }
     }
 }

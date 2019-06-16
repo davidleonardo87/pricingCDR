@@ -71,7 +71,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tablas\Cliente.cs" />
+    <Compile Include="Tablas\Detalle.cs" />
     <Compile Include="Tablas\Parametro.cs" />
+    <Compile Include="Tablas\ParametroAdicional.cs" />
     <Compile Include="Tablas\Servicio.cs" />
     <Compile Include="Tablas\TipoServicio.cs" />
     <EmbeddedResource Include="Formularios\FrmMain.resx">

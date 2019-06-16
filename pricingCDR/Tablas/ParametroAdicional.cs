@@ -7,13 +7,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace pricingCDR.Tablas
 {
-    public class Cliente
+    public class ParametroAdicional
     {
         [Key]
-        public int IdCliente { get; set; }
-        public string Nombre { get; set; }
+        public int IdParametroAdicional { get; set; }
+        public string Descripcion { get; set; }
         public string Estado { get; set; }
-        
+
         public virtual ICollection<Detalle> Detalles { get; set; }
     }
 }

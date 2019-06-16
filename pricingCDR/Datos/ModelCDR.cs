@@ -21,11 +21,27 @@
         // sobre cómo configurar y usar un modelo Code First, vea http://go.microsoft.com/fwlink/?LinkId=390109.
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
-        public virtual DbSet<Tablas.Servicio> Servicios { get; set; }
         public virtual DbSet<Tablas.Parametro> Parametros { get; set; }
         public virtual DbSet<Tablas.Cliente> Clientes { get; set; }
+        public virtual DbSet<Tablas.Detalle> Detalles { get; set; }
+        public virtual DbSet<Tablas.ParametroAdicional> ParametrosAdicionales { get; set; }
+        public virtual DbSet<Tablas.Servicio> Servicios { get; set; }
+        
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Tablas.Detalle>()
+                .HasMany<Tablas.ParametroAdicional>(s => s.ParametrosAdicionales)
+                .WithMany(c => c.Detalles)
+                .Map(cs =>
+                {
+                    cs.MapLeftKey("DetalleId");
+                    cs.MapRightKey("ParametroAdicionalId");
+                    cs.ToTable("DetalleParametroAdicional");
+                });
+        }
 
     }
+
 
     //public class MyEntity
     //{
