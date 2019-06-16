@@ -1,4 +1,4 @@
-﻿namespace pricingCDR
+﻿namespace pricingCDR.Formularios
 {
     partial class FrmMain
     {
@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "FrmMain";
             this.Text = "PRICING CDR";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
         }
