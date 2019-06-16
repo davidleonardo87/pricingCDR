@@ -66,5 +66,17 @@ namespace pricingCDR.Formularios
             Tablas.Servicio servicio = cell.Tag as Tablas.Servicio;
             
         }
+
+        private void dataGridViewOffLine_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var grid = sender as DataGridView;
+            var cell = grid[e.ColumnIndex, e.RowIndex];
+            if (cell.Tag == null)
+            {
+                return;
+            }
+            Tablas.Servicio servicio = cell.Tag as Tablas.Servicio;
+
+        }
     }
 }

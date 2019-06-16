@@ -23,7 +23,7 @@ namespace pricingCDR
                     new Tablas.Servicio()
                     {
                         IdServicio = 1,
-                        Descripcion = "Internet 3G",
+                        Descripcion = "Internet 3G Familia",
                         Estado = "A",
                         Orden = 1,
                         TipoServicio = Tablas.TipoServicio.OnTime
@@ -32,7 +32,7 @@ namespace pricingCDR
                     new Tablas.Servicio()
                     {
                         IdServicio = 2,
-                        Descripcion = "Internet 4G",
+                        Descripcion = "Internet 4G Empresa",
                         Estado = "A",
                         Orden = 2,
                         TipoServicio = Tablas.TipoServicio.OnTime
@@ -41,7 +41,7 @@ namespace pricingCDR
                     new Tablas.Servicio()
                     {
                         IdServicio = 3,
-                        Descripcion = "Televisión por cable",
+                        Descripcion = "Paquete Llamadas",
                         Estado = "A",
                         Orden = 3,
                         TipoServicio = Tablas.TipoServicio.OnTime
@@ -121,6 +121,38 @@ namespace pricingCDR
                 context.SaveChanges();
                 #endregion
 
+                //agregar servicios offline
+                #region add serviciosOffLine
+                context.Servicios.Add(
+                    new Tablas.Servicio()
+                    {
+                        IdServicio = 4,
+                        Descripcion = "Paquete Internet 3G Mensual",
+                        Estado = "A",
+                        Orden = 4,
+                        TipoServicio = Tablas.TipoServicio.OffLine
+                    });
+                context.Servicios.Add(
+                    new Tablas.Servicio()
+                    {
+                        IdServicio = 5,
+                        Descripcion = "Paquete Internet 4G Diario",
+                        Estado = "A",
+                        Orden = 2,
+                        TipoServicio = Tablas.TipoServicio.OffLine
+                    });
+                context.Servicios.Add(
+                    new Tablas.Servicio()
+                    {
+                        IdServicio = 6,
+                        Descripcion = "Telefonía Ilimitada",
+                        Estado = "A",
+                        Orden = 3,
+                        TipoServicio = Tablas.TipoServicio.OffLine
+                    });
+                //save servicios offline
+                context.SaveChanges();
+                #endregion
             }
         }
 

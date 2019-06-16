@@ -29,16 +29,23 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageOnTime = new System.Windows.Forms.TabPage();
             this.tabPageOffLine = new System.Windows.Forms.TabPage();
             this.dataGridViewOnTime = new System.Windows.Forms.DataGridView();
             this.ButtonColumnServicios = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBoxServicios = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewOffLine = new System.Windows.Forms.DataGridView();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControlMain.SuspendLayout();
             this.tabPageOnTime.SuspendLayout();
+            this.tabPageOffLine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOnTime)).BeginInit();
             this.groupBoxServicios.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOffLine)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -67,6 +74,7 @@
             // 
             // tabPageOffLine
             // 
+            this.tabPageOffLine.Controls.Add(this.groupBox1);
             this.tabPageOffLine.Location = new System.Drawing.Point(4, 22);
             this.tabPageOffLine.Name = "tabPageOffLine";
             this.tabPageOffLine.Padding = new System.Windows.Forms.Padding(3);
@@ -127,6 +135,58 @@
             this.groupBoxServicios.TabStop = false;
             this.groupBoxServicios.Text = "SERVICIOS";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.dataGridViewOffLine);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(164, 388);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "SERVICIOS";
+            // 
+            // dataGridViewOffLine
+            // 
+            this.dataGridViewOffLine.AllowUserToAddRows = false;
+            this.dataGridViewOffLine.AllowUserToDeleteRows = false;
+            this.dataGridViewOffLine.AllowUserToResizeColumns = false;
+            this.dataGridViewOffLine.AllowUserToResizeRows = false;
+            this.dataGridViewOffLine.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridViewOffLine.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewOffLine.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewOffLine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewOffLine.ColumnHeadersVisible = false;
+            this.dataGridViewOffLine.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewButtonColumn1});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOffLine.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewOffLine.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewOffLine.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewOffLine.MultiSelect = false;
+            this.dataGridViewOffLine.Name = "dataGridViewOffLine";
+            this.dataGridViewOffLine.ReadOnly = true;
+            this.dataGridViewOffLine.RowHeadersVisible = false;
+            this.dataGridViewOffLine.RowTemplate.Height = 50;
+            this.dataGridViewOffLine.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewOffLine.Size = new System.Drawing.Size(158, 369);
+            this.dataGridViewOffLine.TabIndex = 0;
+            this.dataGridViewOffLine.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOffLine_CellContentClick);
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.HeaderText = "ButtonColumn";
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            this.dataGridViewButtonColumn1.ReadOnly = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,8 +199,11 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.tabControlMain.ResumeLayout(false);
             this.tabPageOnTime.ResumeLayout(false);
+            this.tabPageOffLine.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOnTime)).EndInit();
             this.groupBoxServicios.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOffLine)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -153,6 +216,9 @@
         private System.Windows.Forms.DataGridView dataGridViewOnTime;
         private System.Windows.Forms.DataGridViewButtonColumn ButtonColumnServicios;
         private System.Windows.Forms.GroupBox groupBoxServicios;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dataGridViewOffLine;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
     }
 }
 
