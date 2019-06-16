@@ -39,6 +39,9 @@
             this.groupBoxOffLine = new System.Windows.Forms.GroupBox();
             this.dataGridViewOffLine = new System.Windows.Forms.DataGridView();
             this.ButtonColumnServiciosOffLine = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.groupBoxParametrosOnTime = new System.Windows.Forms.GroupBox();
+            this.groupBoxParametrosOffLine = new System.Windows.Forms.GroupBox();
+            this.groupBoxButtonsOnTime = new System.Windows.Forms.GroupBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageOnTime.SuspendLayout();
             this.tabPageOffLine.SuspendLayout();
@@ -63,6 +66,8 @@
             // 
             // tabPageOnTime
             // 
+            this.tabPageOnTime.Controls.Add(this.groupBoxButtonsOnTime);
+            this.tabPageOnTime.Controls.Add(this.groupBoxParametrosOnTime);
             this.tabPageOnTime.Controls.Add(this.groupBoxServicios);
             this.tabPageOnTime.Location = new System.Drawing.Point(4, 22);
             this.tabPageOnTime.Name = "tabPageOnTime";
@@ -74,6 +79,7 @@
             // 
             // tabPageOffLine
             // 
+            this.tabPageOffLine.Controls.Add(this.groupBoxParametrosOffLine);
             this.tabPageOffLine.Controls.Add(this.groupBoxOffLine);
             this.tabPageOffLine.Location = new System.Drawing.Point(4, 22);
             this.tabPageOffLine.Name = "tabPageOffLine";
@@ -187,6 +193,37 @@
             this.ButtonColumnServiciosOffLine.Name = "ButtonColumnServiciosOffLine";
             this.ButtonColumnServiciosOffLine.ReadOnly = true;
             // 
+            // groupBoxParametrosOnTime
+            // 
+            this.groupBoxParametrosOnTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxParametrosOnTime.Location = new System.Drawing.Point(277, 6);
+            this.groupBoxParametrosOnTime.Name = "groupBoxParametrosOnTime";
+            this.groupBoxParametrosOnTime.Size = new System.Drawing.Size(485, 277);
+            this.groupBoxParametrosOnTime.TabIndex = 2;
+            this.groupBoxParametrosOnTime.TabStop = false;
+            this.groupBoxParametrosOnTime.Text = "Parametros";
+            // 
+            // groupBoxParametrosOffLine
+            // 
+            this.groupBoxParametrosOffLine.Location = new System.Drawing.Point(310, 32);
+            this.groupBoxParametrosOffLine.Name = "groupBoxParametrosOffLine";
+            this.groupBoxParametrosOffLine.Size = new System.Drawing.Size(425, 166);
+            this.groupBoxParametrosOffLine.TabIndex = 3;
+            this.groupBoxParametrosOffLine.TabStop = false;
+            this.groupBoxParametrosOffLine.Text = "Parametros";
+            // 
+            // groupBoxButtonsOnTime
+            // 
+            this.groupBoxButtonsOnTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxButtonsOnTime.Location = new System.Drawing.Point(277, 289);
+            this.groupBoxButtonsOnTime.Name = "groupBoxButtonsOnTime";
+            this.groupBoxButtonsOnTime.Size = new System.Drawing.Size(485, 105);
+            this.groupBoxButtonsOnTime.TabIndex = 3;
+            this.groupBoxButtonsOnTime.TabStop = false;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,6 +256,9 @@
         private System.Windows.Forms.GroupBox groupBoxOffLine;
         private System.Windows.Forms.DataGridView dataGridViewOffLine;
         private System.Windows.Forms.DataGridViewButtonColumn ButtonColumnServiciosOffLine;
+        private System.Windows.Forms.GroupBox groupBoxParametrosOnTime;
+        private System.Windows.Forms.GroupBox groupBoxParametrosOffLine;
+        private System.Windows.Forms.GroupBox groupBoxButtonsOnTime;
     }
 }
 

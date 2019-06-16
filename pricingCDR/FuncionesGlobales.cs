@@ -56,28 +56,32 @@ namespace pricingCDR
                     new Tablas.Cliente() {
                         Estado = "A",
                         IdCliente = 1,
-                        Nombre = "Dr. Carlos Alvarado"
+                        Nombre = "Dr. Carlos Alvarado",
+                        Numero = "0982547821"
                     });
                 context.Clientes.Add(
                     new Tablas.Cliente()
                     {
                         Estado = "A",
                         IdCliente = 2,
-                        Nombre = "Ing. Andrea Rivera"
+                        Nombre = "Ing. Andrea Rivera",
+                        Numero = "0987458745"
                     });
                 context.Clientes.Add(
                     new Tablas.Cliente()
                     {
                         Estado = "A",
                         IdCliente = 3,
-                        Nombre = "Leonardo Rood"
+                        Nombre = "Leonardo Rood",
+                        Numero = "0987254785"
                     });
                 context.Clientes.Add(
                     new Tablas.Cliente()
                     {
                         Estado = "A",
                         IdCliente = 4,
-                        Nombre = "David Gonzalez"
+                        Nombre = "David Gonzalez",
+                        Numero = "0978548236"
                     });
                 //save clientes
                 context.SaveChanges();

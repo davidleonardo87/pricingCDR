@@ -13,7 +13,8 @@ namespace pricingCDR.Tablas
         public int IdCliente { get; set; }
         public string Nombre { get; set; }
         public string Estado { get; set; }
-        
+        public string Numero { get; set; }
+
         public virtual ICollection<Detalle> Detalles { get; set; }
     }
 }

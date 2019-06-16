@@ -98,7 +98,7 @@ namespace pricingCDR.Formularios
                 return;
             }
             Tablas.Servicio servicio = cell.Tag as Tablas.Servicio;
-            
+            this.groupBoxParametrosOnTime.Text = "Parametros del servicio \"" + servicio.Descripcion + "\"";
         }
 
         private void dataGridViewOffLine_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -110,7 +110,7 @@ namespace pricingCDR.Formularios
                 return;
             }
             Tablas.Servicio servicio = cell.Tag as Tablas.Servicio;
-
+            this.groupBoxParametrosOffLine.Text = "Parametros del servicio \"" + servicio.Descripcion + "\"";
         }
     }
 }
