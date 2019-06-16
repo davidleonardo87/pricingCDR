@@ -15,6 +15,8 @@ namespace pricingCDR.Tablas
         public string Estado { get; set; }
         public TipoServicio TipoServicio { get; set; }
         public byte Orden { get; set; }
+        public string Valor { get; set; }
+        public int Cantidad { get; set; }
 
     }
 }
