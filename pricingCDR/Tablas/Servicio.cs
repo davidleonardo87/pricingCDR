@@ -16,6 +16,7 @@ namespace pricingCDR.Tablas
         public byte Orden { get; set; }
         public TipoServicio TipoServicio { get; set; }
 
-        
+        public ICollection<Parametro> Parametros { get; set; }
+
     }
 }

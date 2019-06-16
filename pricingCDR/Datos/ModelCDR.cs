@@ -29,14 +29,26 @@
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
+            //relacion detalle parametro adicional
             modelBuilder.Entity<Tablas.Detalle>()
-                .HasMany<Tablas.ParametroAdicional>(s => s.ParametrosAdicionales)
-                .WithMany(c => c.Detalles)
-                .Map(cs =>
+                .HasMany<Tablas.ParametroAdicional>(d => d.ParametrosAdicionales)
+                .WithMany(p => p.Detalles)
+                .Map(dp =>
                 {
-                    cs.MapLeftKey("DetalleId");
-                    cs.MapRightKey("ParametroAdicionalId");
-                    cs.ToTable("DetalleParametroAdicional");
+                    dp.MapLeftKey("DetalleId");
+                    dp.MapRightKey("ParametroAdicionalId");
+                    dp.ToTable("DetalleParametroAdicional");
+                });
+
+            //relacion servicio parametro
+            modelBuilder.Entity<Tablas.Servicio>()
+                .HasMany<Tablas.Parametro>(s => s.Parametros)
+                .WithMany(p => p.Servicios)
+                .Map(sp=>{
+                    sp.MapLeftKey("ServicioId");
+                    sp.MapRightKey("ParametroId");
+                    sp.ToTable("ServicioParametro");
                 });
         }
 

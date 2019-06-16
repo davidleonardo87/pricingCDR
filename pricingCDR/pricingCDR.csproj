@@ -75,6 +75,7 @@
     <Compile Include="Tablas\Parametro.cs" />
     <Compile Include="Tablas\ParametroAdicional.cs" />
     <Compile Include="Tablas\Servicio.cs" />
+    <Compile Include="Tablas\TipoParametro.cs" />
     <Compile Include="Tablas\TipoServicio.cs" />
     <EmbeddedResource Include="Formularios\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

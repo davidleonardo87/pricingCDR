@@ -17,8 +17,55 @@ namespace pricingCDR
         {
             using (Datos.ModelCDR context = new Datos.ModelCDR())
             {
-                // add servicios
+
+                //agregar parametros
+                #region add parametro
+                var parametrouno = new Tablas.Parametro()
+                {
+                    IdParametro = 1,
+                    Descripcion = "Segundos",
+                    Estado = "A",
+                    Orden = 1,
+                    TipoServicio = Tablas.TipoServicio.OnTime,
+                    Valor = "0.017",
+                    Costo = decimal.Parse("0.017"),
+                    TipoParametro = Tablas.TipoParametro.Tiempo,
+                    Cantidad = 0
+                };
+                context.Parametros.Add(parametrouno);
+                var parametrodos = new Tablas.Parametro()
+                {
+                    IdParametro = 2,
+                    Descripcion = "Días",
+                    Estado = "A",
+                    Orden = 2,
+                    TipoServicio = Tablas.TipoServicio.OnTime,
+                    Valor = "0.71",
+                    Costo = decimal.Parse("0.71"),
+                    TipoParametro = Tablas.TipoParametro.Tiempo,
+                    Cantidad = 0
+                };
+                context.Parametros.Add(parametrodos);
+                var parametrotres = new Tablas.Parametro()
+                {
+                    IdParametro = 3,
+                    Descripcion = "Región",
+                    Estado = "A",
+                    Orden = 3,
+                    TipoServicio = Tablas.TipoServicio.OnTime,
+                    Valor = "Costa",
+                    Costo = decimal.Parse("0.05"),
+                    TipoParametro = Tablas.TipoParametro.Descuento,
+                    Cantidad = 0
+                };
+                context.Parametros.Add(parametrotres);
+                context.SaveChanges();
+                #endregion
+
+                // add servicios ontime
                 #region add servicios
+                List<Tablas.Parametro> parametrosOntime = new List<Tablas.Parametro>();
+                parametrosOntime.Add(parametrouno);
                 context.Servicios.Add(
                     new Tablas.Servicio()
                     {
@@ -26,7 +73,8 @@ namespace pricingCDR
                         Descripcion = "Internet 3G Familia",
                         Estado = "A",
                         Orden = 1,
-                        TipoServicio = Tablas.TipoServicio.OnTime
+                        TipoServicio = Tablas.TipoServicio.OnTime,
+                        Parametros = parametrosOntime
                     });
                 context.Servicios.Add(
                     new Tablas.Servicio()
@@ -35,7 +83,8 @@ namespace pricingCDR
                         Descripcion = "Internet 4G Empresa",
                         Estado = "A",
                         Orden = 2,
-                        TipoServicio = Tablas.TipoServicio.OnTime
+                        TipoServicio = Tablas.TipoServicio.OnTime,
+                        Parametros = parametrosOntime
                     });
                 context.Servicios.Add(
                     new Tablas.Servicio()
@@ -44,7 +93,8 @@ namespace pricingCDR
                         Descripcion = "Paquete Llamadas",
                         Estado = "A",
                         Orden = 3,
-                        TipoServicio = Tablas.TipoServicio.OnTime
+                        TipoServicio = Tablas.TipoServicio.OnTime,
+                        Parametros = parametrosOntime
                     });
                 //save servicios
                 context.SaveChanges();
@@ -87,46 +137,10 @@ namespace pricingCDR
                 context.SaveChanges();
                 #endregion
 
-                //agregar parametros
-                #region add parametro
-                context.Parametros.Add(
-                    new Tablas.Parametro()
-                    {
-                        IdParametro = 1,
-                        Descripcion = "Segundos",
-                        Estado = "A",
-                        Orden = 1,
-                        TipoServicio = Tablas.TipoServicio.OnTime,
-                        Valor = "0.017",
-                        Cantidad = 0
-                    });
-                context.Parametros.Add(
-                    new Tablas.Parametro()
-                    {
-                        IdParametro = 2,
-                        Descripcion = "Días",
-                        Estado = "A",
-                        Orden = 2,
-                        TipoServicio = Tablas.TipoServicio.OnTime,
-                        Valor = "0.71",
-                        Cantidad = 0
-                    });
-                context.Parametros.Add(
-                    new Tablas.Parametro()
-                    {
-                        IdParametro = 3,
-                        Descripcion = "Región",
-                        Estado = "A",
-                        Orden = 3,
-                        TipoServicio = Tablas.TipoServicio.OnTime,
-                        Valor = "Costa",
-                        Cantidad = 0
-                    });
-                context.SaveChanges();
-                #endregion
-
                 //agregar servicios offline
                 #region add serviciosOffLine
+                List<Tablas.Parametro> parametros = new List<Tablas.Parametro>();
+                parametros.Add(parametrouno);
                 context.Servicios.Add(
                     new Tablas.Servicio()
                     {
@@ -134,8 +148,11 @@ namespace pricingCDR
                         Descripcion = "Paquete Internet 3G Mensual",
                         Estado = "A",
                         Orden = 4,
-                        TipoServicio = Tablas.TipoServicio.OffLine
+                        TipoServicio = Tablas.TipoServicio.OffLine,
+                        Parametros = parametros
                     });
+                parametros = new List<Tablas.Parametro>();
+                parametros.Add(parametrodos);
                 context.Servicios.Add(
                     new Tablas.Servicio()
                     {
@@ -143,8 +160,11 @@ namespace pricingCDR
                         Descripcion = "Paquete Internet 4G Diario",
                         Estado = "A",
                         Orden = 2,
-                        TipoServicio = Tablas.TipoServicio.OffLine
+                        TipoServicio = Tablas.TipoServicio.OffLine, 
+                        Parametros = parametros
                     });
+                parametros = new List<Tablas.Parametro>();
+                parametros.Add(parametrotres);
                 context.Servicios.Add(
                     new Tablas.Servicio()
                     {
@@ -152,11 +172,46 @@ namespace pricingCDR
                         Descripcion = "Telefonía Ilimitada",
                         Estado = "A",
                         Orden = 3,
-                        TipoServicio = Tablas.TipoServicio.OffLine
+                        TipoServicio = Tablas.TipoServicio.OffLine,
+                        Parametros = parametros
                     });
                 //save servicios offline
                 context.SaveChanges();
                 #endregion
+
+                //agregar detalle ontime
+                #region detalleOntime
+                context.Detalles.Add(new Tablas.Detalle()
+                {
+                    IdCliente = 1,
+                    IdDetalle = 1,
+                    IdServicio = 1,
+                    TipoServicio = Tablas.TipoServicio.OnTime,
+                    Costo = 20
+                });
+                context.Detalles.Add(new Tablas.Detalle()
+                {
+                    IdCliente = 2,
+                    IdDetalle = 2,
+                    IdServicio = 2,
+                    TipoServicio = Tablas.TipoServicio.OnTime,
+                    Costo = 20
+                });
+                context.Detalles.Add(new Tablas.Detalle()
+                {
+                    IdCliente = 1,
+                    IdDetalle = 3,
+                    IdServicio = 3,
+                    TipoServicio = Tablas.TipoServicio.OnTime,
+                    Costo = 15
+                });
+                //save detalle ontime
+                context.SaveChanges();
+                #endregion
+
+
+
+
             }
         }
 

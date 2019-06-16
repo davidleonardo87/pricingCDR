@@ -86,6 +86,7 @@ namespace pricingCDR.Formularios
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                this.Close();
             }
         }
 
@@ -99,6 +100,7 @@ namespace pricingCDR.Formularios
             }
             Tablas.Servicio servicio = cell.Tag as Tablas.Servicio;
             this.groupBoxParametrosOnTime.Text = "Parametros del servicio \"" + servicio.Descripcion + "\"";
+
         }
 
         private void dataGridViewOffLine_CellContentClick(object sender, DataGridViewCellEventArgs e)
