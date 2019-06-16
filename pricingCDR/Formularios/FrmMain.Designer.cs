@@ -34,17 +34,17 @@
             this.tabPageOnTime = new System.Windows.Forms.TabPage();
             this.tabPageOffLine = new System.Windows.Forms.TabPage();
             this.dataGridViewOnTime = new System.Windows.Forms.DataGridView();
-            this.ButtonColumnServicios = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ButtonColumnServiciosOnTime = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBoxServicios = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxOffLine = new System.Windows.Forms.GroupBox();
             this.dataGridViewOffLine = new System.Windows.Forms.DataGridView();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ButtonColumnServiciosOffLine = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControlMain.SuspendLayout();
             this.tabPageOnTime.SuspendLayout();
             this.tabPageOffLine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOnTime)).BeginInit();
             this.groupBoxServicios.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxOffLine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOffLine)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +74,7 @@
             // 
             // tabPageOffLine
             // 
-            this.tabPageOffLine.Controls.Add(this.groupBox1);
+            this.tabPageOffLine.Controls.Add(this.groupBoxOffLine);
             this.tabPageOffLine.Location = new System.Drawing.Point(4, 22);
             this.tabPageOffLine.Name = "tabPageOffLine";
             this.tabPageOffLine.Padding = new System.Windows.Forms.Padding(3);
@@ -95,7 +95,7 @@
             this.dataGridViewOnTime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOnTime.ColumnHeadersVisible = false;
             this.dataGridViewOnTime.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ButtonColumnServicios});
+            this.ButtonColumnServiciosOnTime});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -113,15 +113,15 @@
             this.dataGridViewOnTime.RowHeadersVisible = false;
             this.dataGridViewOnTime.RowTemplate.Height = 50;
             this.dataGridViewOnTime.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewOnTime.Size = new System.Drawing.Size(158, 369);
+            this.dataGridViewOnTime.Size = new System.Drawing.Size(259, 369);
             this.dataGridViewOnTime.TabIndex = 0;
             this.dataGridViewOnTime.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOnTime_CellContentClick);
             // 
-            // ButtonColumnServicios
+            // ButtonColumnServiciosOnTime
             // 
-            this.ButtonColumnServicios.HeaderText = "ButtonColumn";
-            this.ButtonColumnServicios.Name = "ButtonColumnServicios";
-            this.ButtonColumnServicios.ReadOnly = true;
+            this.ButtonColumnServiciosOnTime.HeaderText = "ButtonColumn";
+            this.ButtonColumnServiciosOnTime.Name = "ButtonColumnServiciosOnTime";
+            this.ButtonColumnServiciosOnTime.ReadOnly = true;
             // 
             // groupBoxServicios
             // 
@@ -130,22 +130,22 @@
             this.groupBoxServicios.Controls.Add(this.dataGridViewOnTime);
             this.groupBoxServicios.Location = new System.Drawing.Point(6, 6);
             this.groupBoxServicios.Name = "groupBoxServicios";
-            this.groupBoxServicios.Size = new System.Drawing.Size(164, 388);
+            this.groupBoxServicios.Size = new System.Drawing.Size(265, 388);
             this.groupBoxServicios.TabIndex = 1;
             this.groupBoxServicios.TabStop = false;
             this.groupBoxServicios.Text = "SERVICIOS";
             // 
-            // groupBox1
+            // groupBoxOffLine
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.groupBoxOffLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.dataGridViewOffLine);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(164, 388);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "SERVICIOS";
+            this.groupBoxOffLine.Controls.Add(this.dataGridViewOffLine);
+            this.groupBoxOffLine.Location = new System.Drawing.Point(6, 6);
+            this.groupBoxOffLine.Name = "groupBoxOffLine";
+            this.groupBoxOffLine.Size = new System.Drawing.Size(265, 388);
+            this.groupBoxOffLine.TabIndex = 2;
+            this.groupBoxOffLine.TabStop = false;
+            this.groupBoxOffLine.Text = "SERVICIOS";
             // 
             // dataGridViewOffLine
             // 
@@ -159,7 +159,7 @@
             this.dataGridViewOffLine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOffLine.ColumnHeadersVisible = false;
             this.dataGridViewOffLine.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewButtonColumn1});
+            this.ButtonColumnServiciosOffLine});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -177,15 +177,15 @@
             this.dataGridViewOffLine.RowHeadersVisible = false;
             this.dataGridViewOffLine.RowTemplate.Height = 50;
             this.dataGridViewOffLine.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridViewOffLine.Size = new System.Drawing.Size(158, 369);
+            this.dataGridViewOffLine.Size = new System.Drawing.Size(259, 369);
             this.dataGridViewOffLine.TabIndex = 0;
             this.dataGridViewOffLine.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOffLine_CellContentClick);
             // 
-            // dataGridViewButtonColumn1
+            // ButtonColumnServiciosOffLine
             // 
-            this.dataGridViewButtonColumn1.HeaderText = "ButtonColumn";
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.ReadOnly = true;
+            this.ButtonColumnServiciosOffLine.HeaderText = "ButtonColumn";
+            this.ButtonColumnServiciosOffLine.Name = "ButtonColumnServiciosOffLine";
+            this.ButtonColumnServiciosOffLine.ReadOnly = true;
             // 
             // FrmMain
             // 
@@ -202,7 +202,7 @@
             this.tabPageOffLine.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOnTime)).EndInit();
             this.groupBoxServicios.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.groupBoxOffLine.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOffLine)).EndInit();
             this.ResumeLayout(false);
 
@@ -214,11 +214,11 @@
         private System.Windows.Forms.TabPage tabPageOnTime;
         private System.Windows.Forms.TabPage tabPageOffLine;
         private System.Windows.Forms.DataGridView dataGridViewOnTime;
-        private System.Windows.Forms.DataGridViewButtonColumn ButtonColumnServicios;
+        private System.Windows.Forms.DataGridViewButtonColumn ButtonColumnServiciosOnTime;
         private System.Windows.Forms.GroupBox groupBoxServicios;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxOffLine;
         private System.Windows.Forms.DataGridView dataGridViewOffLine;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private System.Windows.Forms.DataGridViewButtonColumn ButtonColumnServiciosOffLine;
     }
 }
 
