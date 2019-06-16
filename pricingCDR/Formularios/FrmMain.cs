@@ -19,7 +19,38 @@ namespace pricingCDR.Formularios
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            try
+            {
+                using (Datos.ModelCDR context = new Datos.ModelCDR())
+                {
+                    bool exists = context.Database.Exists();
+                    if (!exists)
+                    {
+                        context.Database.CreateIfNotExists();
+                        FuncionesGlobales.Seed();
+                    }
+                    var queryServiciosActivos = (from entity in context.Servicios
+                                        where entity.Estado.Equals("A")
+                                        select  entity).AsQueryable();
+                    var queryServiciosOnTime = (from entity in queryServiciosActivos
+                                                where entity.TipoServicio == Tablas.TipoServicio.OnTime
+                                                orderby entity.Orden
+                                                select entity).AsQueryable();
+                    var listServiciosOntime = queryServiciosOnTime.ToList();
+                    int c = 0;
+                    foreach(Tablas.Servicio servicio in listServiciosOntime)
+                    {
+                        this.dataGridViewOnTime.Rows.Add();
+                        this.dataGridViewOnTime.Rows[c].Cells[0].Value = servicio.Descripcion;
+                        this.dataGridViewOnTime.Rows[c].Cells[0].Tag = servicio;
+                        c++;
+                    }
 
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
     }
 }

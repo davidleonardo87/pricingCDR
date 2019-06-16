@@ -22,6 +22,8 @@
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
         public virtual DbSet<Tablas.Servicio> Servicios { get; set; }
+        public virtual DbSet<Tablas.Parametro> Parametros { get; set; }
+        public virtual DbSet<Tablas.Cliente> Clientes { get; set; }
 
     }
 
