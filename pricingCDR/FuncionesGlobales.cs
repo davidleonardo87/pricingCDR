@@ -27,8 +27,8 @@ namespace pricingCDR
                     Estado = "A",
                     Orden = 1,
                     TipoServicio = Tablas.TipoServicio.OnTime,
-                    Valor = "0.017",
-                    Costo = decimal.Parse("0.017"),
+                    Valor = "22.00",
+                    Costo = decimal.Parse("22.00"),
                     TipoParametro = Tablas.TipoParametro.Tiempo,
                     Cantidad = 0
                 };
@@ -40,8 +40,8 @@ namespace pricingCDR
                     Estado = "A",
                     Orden = 2,
                     TipoServicio = Tablas.TipoServicio.OnTime,
-                    Valor = "0.71",
-                    Costo = decimal.Parse("0.71"),
+                    Valor = "1.00",
+                    Costo = decimal.Parse("1.00"),
                     TipoParametro = Tablas.TipoParametro.Tiempo,
                     Cantidad = 0
                 };
@@ -53,10 +53,7 @@ namespace pricingCDR
                     Estado = "A",
                     Orden = 3,
                     TipoServicio = Tablas.TipoServicio.OnTime,
-                    Valor = "Costa",
-                    Costo = decimal.Parse("0.05"),
-                    TipoParametro = Tablas.TipoParametro.Descuento,
-                    Cantidad = 0
+                    TipoParametro = Tablas.TipoParametro.Multiplo
                 };
                 context.Parametros.Add(parametrotres);
                 context.SaveChanges();

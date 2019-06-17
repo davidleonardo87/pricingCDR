@@ -26,7 +26,8 @@
         public virtual DbSet<Tablas.Detalle> Detalles { get; set; }
         public virtual DbSet<Tablas.ParametroAdicional> ParametrosAdicionales { get; set; }
         public virtual DbSet<Tablas.Servicio> Servicios { get; set; }
-        
+        public virtual DbSet<Tablas.OpcionParametro> OpcionesParametro { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 

@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace pricingCDR.Tablas
 {
-    public enum TipoParametro
+    public partial class Parametro
     {
-        Descuento = 1,
-        ValorPorUnidad = 2,
-        Tiempo = 3,
-        Multiplo = 4
+        public bool Check { get; set; }
+
     }
 }

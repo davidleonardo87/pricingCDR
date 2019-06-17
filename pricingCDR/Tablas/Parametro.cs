@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace pricingCDR.Tablas
 {
-    public class Parametro
+    public partial class Parametro
     {
         [Key]
         public int IdParametro { get; set; }
@@ -20,6 +20,6 @@ namespace pricingCDR.Tablas
         public decimal Costo { get; set; }
         public TipoParametro TipoParametro { get; set; }
         public ICollection<Servicio> Servicios { get; set; }
-
+        public virtual ICollection<OpcionParametro> OpcionesParametro { get; set; }
     }
 }
