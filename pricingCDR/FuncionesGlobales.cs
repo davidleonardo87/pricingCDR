@@ -106,6 +106,7 @@ namespace pricingCDR
                     Costo = 0.12m,
                     Estado = "A",
                     Orden = 5,
+                    Valor = "0.12",
                     TipoParametro = Tablas.TipoParametro.Impuesto
                 };
                 context.Parametros.Add(parametrocinco);
@@ -118,6 +119,7 @@ namespace pricingCDR
                     Costo = 0.01m,
                     Estado = "A",
                     Orden = 6,
+                    Valor = "0.00",
                     TipoParametro = Tablas.TipoParametro.Impuesto
                 };
                 context.Parametros.Add(parametroseis);

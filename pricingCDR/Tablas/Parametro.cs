@@ -28,12 +28,15 @@ namespace pricingCDR.Tablas
         #region NotMappedProperties
         [NotMapped]
         public bool Check { get; set; }
+        [NotMapped]
+        public object NuevoValor { get; set; }
         #endregion
 
         public Parametro()
         {
             Servicios = new List<Servicio>();
             OpcionesParametro = new List<OpcionParametro>();
+            NuevoValor = null;
         }
 
     }

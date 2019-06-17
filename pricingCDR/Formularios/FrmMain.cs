@@ -104,47 +104,50 @@ namespace pricingCDR.Formularios
             {
                 Tablas.Servicio servicio = cell.Tag as Tablas.Servicio;
                 this.LastServicioSelected = servicio;
-                this.groupBoxParametrosOnTime.Text = "Parametros del servicio \"" + servicio.Descripcion + "\"";
-                this.groupBoxParametrosOnTime.Visible = true;
-                this.groupBoxConsultaOnTime.Visible = true;
-                this.dataGridViewParametersOnTime.Rows.Clear();
-                foreach (Tablas.Parametro p in servicio.Parametros)
-                {
-                    var parametro = p;
-                    this.dataGridViewParametersOnTime.Rows.Add();
-                    int c = this.dataGridViewParametersOnTime.Rows.Count - 1;
-                    this.dataGridViewParametersOnTime.Rows[c].Cells[1].Value = parametro.Descripcion;
-                    if (parametro.TieneOpciones)
-                    {
-                        using (Datos.ModelCDR context = new Datos.ModelCDR())
-                        {
-                            var query = (from entity in context.OpcionesParametro
-                                         where entity.IdParametro == parametro.IdParametro
-                                         select entity).AsQueryable();
-                            if (query.Any())
-                            {
-                                List<Tablas.OpcionParametro> opcionParametros = query.ToList();
-                                parametro.OpcionesParametro = opcionParametros;
-                                var comboCell = new DataGridViewComboBoxCell();
-                                comboCell.DataSource = opcionParametros;
-                                comboCell.DisplayMember = "Descripcion";
-                                comboCell.ValueMember = "IdOpcionParametro";
-                                this.dataGridViewParametersOnTime[2, c] = comboCell;
-                                int maxlength = (from x in opcionParametros select x.Descripcion.Length).Max();
-                                int selectedvalue = (from x in opcionParametros
-                                                     where x.Descripcion.Length == maxlength
-                                                     select x.IdOpcionParametro).First();
-                                this.dataGridViewParametersOnTime[2, c].Value = selectedvalue;
-                            }
-                        }
-                    }
-                    this.dataGridViewParametersOnTime.Rows[c].Tag = parametro;
-                }
-                this.dataGridViewParametersOnTime.AutoResizeColumns();
-                this.dataGridViewParametersOnTime.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                ServicioSelected(this.LastServicioSelected);
+                DataOnTimeClean();
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DataOnTimeClean()
+        {
+            this.buttonShowReportOnTime.Visible = false;
+            this.dataGridViewConsultaOnTime.Rows.Clear();
+            this.dataGridViewConsultaOnTime.Columns.Clear();
+        }
+
+        private void ServicioSelected(Tablas.Servicio servicio)
+        {
+            this.groupBoxParametrosOnTime.Text = "Parametros del servicio \"" + servicio.Descripcion + "\"";
+            this.groupBoxParametrosOnTime.Visible = true;
+            this.groupBoxConsultaOnTime.Visible = true;
+            this.dataGridViewParametersOnTime.Rows.Clear();
+            foreach (Tablas.Parametro p in servicio.Parametros)
+            {
+                var parametro = p;
+                this.dataGridViewParametersOnTime.Rows.Add();
+                int c = this.dataGridViewParametersOnTime.Rows.Count - 1;
+                this.dataGridViewParametersOnTime.Rows[c].Cells[1].Value = parametro.Descripcion;
+                if (parametro.TieneOpciones)
+                {
+                    List<Tablas.OpcionParametro> opcionParametros = parametro.OpcionesParametro.ToList();
+                    var comboCell = new DataGridViewComboBoxCell();
+                    comboCell.DataSource = opcionParametros;
+                    comboCell.DisplayMember = "Descripcion";
+                    comboCell.ValueMember = "IdOpcionParametro";
+                    this.dataGridViewParametersOnTime[2, c] = comboCell;
+                    int maxlength = (from x in opcionParametros select x.Descripcion.Length).Max();
+                    int selectedvalue = (from x in opcionParametros
+                                         where x.Descripcion.Length == maxlength
+                                         select x.IdOpcionParametro).First();
+                    this.dataGridViewParametersOnTime[2, c].Value = selectedvalue;
+                }
+                this.dataGridViewParametersOnTime.Rows[c].Tag = parametro;
+                this.dataGridViewParametersOnTime.AutoResizeColumns();
+                this.dataGridViewParametersOnTime.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
         }
 
@@ -174,11 +177,16 @@ namespace pricingCDR.Formularios
                     if (check != null && (bool)check == true)
                     {
                         Tablas.Parametro parametro = row.Tag as Tablas.Parametro;
+                        if (row.Cells[2].Value == null)
+                        {
+                            row.Cells[2].Value = parametro.Valor;
+                        }
                         switch (parametro.TipoParametro)
                         {
                             case Tablas.TipoParametro.ValorPorUnidad :
                                 {
                                     var valoringresado = row.Cells[2].Value;
+                                    parametro.NuevoValor = valoringresado;
                                     if (parametro.TieneOpciones == false)
                                     {
                                         calculo += decimal.Parse(valoringresado.ToString());
@@ -196,6 +204,7 @@ namespace pricingCDR.Formularios
                             case Tablas.TipoParametro.Multiplo :
                                 {
                                     var valoringresado = row.Cells[2].Value;
+                                    parametro.NuevoValor = valoringresado;
                                     if (parametro.TieneOpciones == false)
                                     {
                                         calculo *= decimal.Parse(valoringresado.ToString());
@@ -207,12 +216,14 @@ namespace pricingCDR.Formularios
                                         decimal valor = opcion.Valor;
                                         calculo *= valor;
                                         parametro.Valor = opcion.Descripcion;
+                                        parametro.NuevoValor = string.Format("{0} [x{1}]",parametro.Valor,opcion.Valor);
                                     }
                                     break;
                                 }
                             case Tablas.TipoParametro.Descuento :
                                 {
                                     var valoringresado = row.Cells[2].Value;
+                                    parametro.NuevoValor = valoringresado;
                                     if (parametro.TieneOpciones == false)
                                     {
                                         var descuento = (calculo * decimal.Parse(valoringresado.ToString()));
@@ -227,12 +238,14 @@ namespace pricingCDR.Formularios
                                         var descuento = (calculo * valor);
                                         calculo -= descuento;
                                         parametro.Valor = descuento.ToString();
+                                        parametro.NuevoValor = parametro.Valor;
                                     }
                                     break;
                                 }
                             case Tablas.TipoParametro.Impuesto:
                                 {
                                     var valoringresado = row.Cells[2].Value;
+                                    parametro.NuevoValor = valoringresado;
                                     if (parametro.TieneOpciones == false)
                                     {
                                         var impuesto = (calculo * decimal.Parse(valoringresado.ToString()));
@@ -247,6 +260,7 @@ namespace pricingCDR.Formularios
                                         var impuesto = (calculo * valor);
                                         calculo += impuesto;
                                         parametro.Valor = impuesto.ToString();
+                                        parametro.NuevoValor = parametro.Valor;
                                     }
                                     break;
                                 }
@@ -267,7 +281,14 @@ namespace pricingCDR.Formularios
                     DataGridViewTextBoxColumn dataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
                     dataGridViewTextBoxColumn.HeaderText = parametro.Descripcion;
                     this.dataGridViewConsultaOnTime.Columns.Add(dataGridViewTextBoxColumn);
-                    data[i] = parametro.Valor;
+                    if (parametro.NuevoValor==null)
+                    {
+                        data[i] = parametro.Valor;
+                    }
+                    else
+                    {
+                        data[i] = parametro.NuevoValor.ToString();
+                    }
                 }
                 DataGridViewTextBoxColumn costocolumn = new DataGridViewTextBoxColumn();
                 costocolumn.HeaderText = "Costo";
@@ -275,6 +296,7 @@ namespace pricingCDR.Formularios
                 this.dataGridViewConsultaOnTime.Columns.Add(costocolumn);
                 this.dataGridViewConsultaOnTime.Rows.Add(data);
                 this.dataGridViewConsultaOnTime.AutoResizeColumns();
+                buttonShowReportOnTime.Visible = true;
             }
             catch(Exception ex)
             {
