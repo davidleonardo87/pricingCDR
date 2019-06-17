@@ -12,6 +12,8 @@ namespace pricingCDR.Formularios
 {
     public partial class FrmMain : Form
     {
+        private Tablas.Servicio LastServicioSelected { get; set; }
+
         public FrmMain()
         {
             InitializeComponent();
@@ -32,7 +34,7 @@ namespace pricingCDR.Formularios
                         FuncionesGlobales.Seed();
                     }
                     //crea un query de los servicios activos de la base de datos
-                    var queryServiciosActivos = (from entity in context.Servicios.Include("Parametros")
+                    var queryServiciosActivos = (from entity in context.Servicios.Include("Parametros").Include("Parametros.OpcionesParametro")
                                                  where entity.Estado.Equals("A")
                                                  select  entity).AsQueryable();
                     
@@ -89,7 +91,7 @@ namespace pricingCDR.Formularios
                 this.Close();
             }
         }
-
+        
         private void dataGridViewOnTime_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var grid = sender as DataGridView;
@@ -98,22 +100,51 @@ namespace pricingCDR.Formularios
             {
                 return;
             }
-            Tablas.Servicio servicio = cell.Tag as Tablas.Servicio;
-            this.groupBoxParametrosOnTime.Text = "Parametros del servicio \"" + servicio.Descripcion + "\"";
-            this.groupBoxParametrosOnTime.Visible = true;
-            this.groupBoxConsultaOnTime.Visible = true;
-            this.dataGridViewParametersOnTime.Rows.Clear();
-            int i = 0;
-            while (i<servicio.Parametros.Count)
+            try
             {
-                if (this.dataGridViewParametersOnTime.Columns.Count == 0)
+                Tablas.Servicio servicio = cell.Tag as Tablas.Servicio;
+                this.LastServicioSelected = servicio;
+                this.groupBoxParametrosOnTime.Text = "Parametros del servicio \"" + servicio.Descripcion + "\"";
+                this.groupBoxParametrosOnTime.Visible = true;
+                this.groupBoxConsultaOnTime.Visible = true;
+                this.dataGridViewParametersOnTime.Rows.Clear();
+                foreach (Tablas.Parametro p in servicio.Parametros)
                 {
-                    DataGridViewButtonColumn columnaBoton = new DataGridViewButtonColumn();
-                    this.dataGridViewParametersOnTime.Columns.Add(columnaBoton);
+                    var parametro = p;
+                    this.dataGridViewParametersOnTime.Rows.Add();
+                    int c = this.dataGridViewParametersOnTime.Rows.Count - 1;
+                    this.dataGridViewParametersOnTime.Rows[c].Cells[1].Value = parametro.Descripcion;
+                    if (parametro.TieneOpciones)
+                    {
+                        using (Datos.ModelCDR context = new Datos.ModelCDR())
+                        {
+                            var query = (from entity in context.OpcionesParametro
+                                         where entity.IdParametro == parametro.IdParametro
+                                         select entity).AsQueryable();
+                            if (query.Any())
+                            {
+                                List<Tablas.OpcionParametro> opcionParametros = query.ToList();
+                                parametro.OpcionesParametro = opcionParametros;
+                                var comboCell = new DataGridViewComboBoxCell();
+                                comboCell.DataSource = opcionParametros;
+                                comboCell.DisplayMember = "Descripcion";
+                                comboCell.ValueMember = "IdOpcionParametro";
+                                this.dataGridViewParametersOnTime[2, c] = comboCell;
+                                int maxlength = (from x in opcionParametros select x.Descripcion.Length).Max();
+                                int selectedvalue = (from x in opcionParametros
+                                                     where x.Descripcion.Length == maxlength
+                                                     select x.IdOpcionParametro).First();
+                                this.dataGridViewParametersOnTime[2, c].Value = selectedvalue;
+                            }
+                        }
+                    }
+                    this.dataGridViewParametersOnTime.Rows[c].Tag = parametro;
                 }
-                this.dataGridViewParametersOnTime.Rows.Add();
-                this.dataGridViewParametersOnTime.Rows[i].Cells[0].Value = servicio.Parametros.ElementAt(i).Descripcion;
-                i++;
+                this.dataGridViewParametersOnTime.AutoResizeColumns();
+                this.dataGridViewParametersOnTime.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -131,12 +162,130 @@ namespace pricingCDR.Formularios
 
         private void btnOnTimeShowData_Click(object sender, EventArgs e)
         {
-
+            this.dataGridViewConsultaOnTime.Rows.Clear();
+            this.dataGridViewConsultaOnTime.Columns.Clear();
+            try
+            {
+                decimal calculo = 0.00m;
+                List<Tablas.Parametro> parametroList = new List<Tablas.Parametro>();
+                foreach(DataGridViewRow row in this.dataGridViewParametersOnTime.Rows)
+                {
+                    var check = (row.Cells[0].Value);
+                    if (check != null && (bool)check == true)
+                    {
+                        Tablas.Parametro parametro = row.Tag as Tablas.Parametro;
+                        switch (parametro.TipoParametro)
+                        {
+                            case Tablas.TipoParametro.ValorPorUnidad :
+                                {
+                                    var valoringresado = row.Cells[2].Value;
+                                    if (parametro.TieneOpciones == false)
+                                    {
+                                        calculo += decimal.Parse(valoringresado.ToString());
+                                    }
+                                    else
+                                    {
+                                        int selectedvalue = (int)valoringresado;
+                                        var opcion = parametro.OpcionesParametro.First(x => x.IdOpcionParametro == selectedvalue);
+                                        decimal valor = opcion.Valor;
+                                        calculo += valor;
+                                        parametro.Valor = opcion.Descripcion;
+                                    }
+                                    break;
+                                }
+                            case Tablas.TipoParametro.Multiplo :
+                                {
+                                    var valoringresado = row.Cells[2].Value;
+                                    if (parametro.TieneOpciones == false)
+                                    {
+                                        calculo *= decimal.Parse(valoringresado.ToString());
+                                    }
+                                    else
+                                    {
+                                        int selectedvalue = (int)valoringresado;
+                                        var opcion = parametro.OpcionesParametro.First(x => x.IdOpcionParametro == selectedvalue);
+                                        decimal valor = opcion.Valor;
+                                        calculo *= valor;
+                                        parametro.Valor = opcion.Descripcion;
+                                    }
+                                    break;
+                                }
+                            case Tablas.TipoParametro.Descuento :
+                                {
+                                    var valoringresado = row.Cells[2].Value;
+                                    if (parametro.TieneOpciones == false)
+                                    {
+                                        var descuento = (calculo * decimal.Parse(valoringresado.ToString()));
+                                        calculo -= descuento;
+                                        parametro.Valor = descuento.ToString();
+                                    }
+                                    else
+                                    {
+                                        int selectedvalue = (int)valoringresado;
+                                        var opcion = parametro.OpcionesParametro.First(x => x.IdOpcionParametro == selectedvalue);
+                                        decimal valor = opcion.Valor;
+                                        var descuento = (calculo * valor);
+                                        calculo -= descuento;
+                                        parametro.Valor = descuento.ToString();
+                                    }
+                                    break;
+                                }
+                            case Tablas.TipoParametro.Impuesto:
+                                {
+                                    var valoringresado = row.Cells[2].Value;
+                                    if (parametro.TieneOpciones == false)
+                                    {
+                                        var impuesto = (calculo * decimal.Parse(valoringresado.ToString()));
+                                        calculo += impuesto;
+                                        parametro.Valor = impuesto.ToString();
+                                    }
+                                    else
+                                    {
+                                        int selectedvalue = (int)valoringresado;
+                                        var opcion = parametro.OpcionesParametro.First(x => x.IdOpcionParametro == selectedvalue);
+                                        decimal valor = opcion.Valor;
+                                        var impuesto = (calculo * valor);
+                                        calculo += impuesto;
+                                        parametro.Valor = impuesto.ToString();
+                                    }
+                                    break;
+                                }
+                        }
+                        parametroList.Add(parametro);
+                    }
+                }
+                decimal costo = calculo;
+                DataGridViewTextBoxColumn servicioColumn = new DataGridViewTextBoxColumn();
+                servicioColumn.HeaderText = "Servicio";
+                this.dataGridViewConsultaOnTime.Columns.Add(servicioColumn);
+                string[] data = new string[parametroList.Count+2];
+                data[0] = LastServicioSelected.Descripcion;
+                int i = 0;
+                foreach (Tablas.Parametro parametro in parametroList)
+                {
+                    i++;
+                    DataGridViewTextBoxColumn dataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+                    dataGridViewTextBoxColumn.HeaderText = parametro.Descripcion;
+                    this.dataGridViewConsultaOnTime.Columns.Add(dataGridViewTextBoxColumn);
+                    data[i] = parametro.Valor;
+                }
+                DataGridViewTextBoxColumn costocolumn = new DataGridViewTextBoxColumn();
+                costocolumn.HeaderText = "Costo";
+                data[data.Length - 1] = costo.ToString();
+                this.dataGridViewConsultaOnTime.Columns.Add(costocolumn);
+                this.dataGridViewConsultaOnTime.Rows.Add(data);
+                this.dataGridViewConsultaOnTime.AutoResizeColumns();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonShowReport_Click(object sender, EventArgs e)
         {
 
         }
+
     }
 }

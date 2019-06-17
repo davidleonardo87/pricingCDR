@@ -20,6 +20,8 @@ namespace pricingCDR.Tablas
         public int Cantidad { get; set; }
         public decimal Costo { get; set; }
         public TipoParametro TipoParametro { get; set; }
+        public bool TieneOpciones { get; set; }
+
         public ICollection<Servicio> Servicios { get; set; }
         public virtual ICollection<OpcionParametro> OpcionesParametro { get; set; }
 
@@ -27,5 +29,12 @@ namespace pricingCDR.Tablas
         [NotMapped]
         public bool Check { get; set; }
         #endregion
+
+        public Parametro()
+        {
+            Servicios = new List<Servicio>();
+            OpcionesParametro = new List<OpcionParametro>();
+        }
+
     }
 }

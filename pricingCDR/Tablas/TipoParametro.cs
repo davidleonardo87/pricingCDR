@@ -11,6 +11,7 @@ namespace pricingCDR.Tablas
         Descuento = 1,
         ValorPorUnidad = 2,
         Tiempo = 3,
-        Multiplo = 4
+        Multiplo = 4,
+        Impuesto = 5
     }
 }

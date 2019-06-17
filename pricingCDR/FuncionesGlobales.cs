@@ -55,6 +55,7 @@ namespace pricingCDR
                     Orden = 3,
                     TipoServicio = Tablas.TipoServicio.OnTime,
                     TipoParametro = Tablas.TipoParametro.Multiplo,
+                    TieneOpciones = true,
                     OpcionesParametro = new List<Tablas.OpcionParametro>()
                     {
                         new Tablas.OpcionParametro()
@@ -72,6 +73,55 @@ namespace pricingCDR
                     }
                 };
                 context.Parametros.Add(parametrotres);
+                var parametrocuatro = new Tablas.Parametro()
+                {
+                    IdParametro = 4,
+                    TipoServicio = Tablas.TipoServicio.OnTime,
+                    TipoParametro = Tablas.TipoParametro.Multiplo,
+                    Descripcion = "Alcance",
+                    Estado = "A", Orden = 7,
+                    TieneOpciones = true,
+                    OpcionesParametro = new List<Tablas.OpcionParametro>()
+                    {
+                        new Tablas.OpcionParametro()
+                        {
+                            Descripcion = "Llamadas Nacionales",
+                            IdParametro = 4,
+                            Valor = 1
+                        },
+                        new Tablas.OpcionParametro()
+                        {
+                            Descripcion = "Llamadas Internacionales",
+                            IdParametro = 4,
+                            Valor = 2.00m
+                        }
+                    }
+                };
+
+                var parametrocinco = new Tablas.Parametro()
+                {
+                    IdParametro = 5,
+                    Descripcion = "% IVA",
+                    TipoServicio = Tablas.TipoServicio.OnTime,
+                    Costo = 0.12m,
+                    Estado = "A",
+                    Orden = 5,
+                    TipoParametro = Tablas.TipoParametro.Impuesto
+                };
+                context.Parametros.Add(parametrocinco);
+
+                var parametroseis = new Tablas.Parametro()
+                {
+                    IdParametro = 6,
+                    Descripcion = "% ICE",
+                    TipoServicio = Tablas.TipoServicio.OnTime,
+                    Costo = 0.01m,
+                    Estado = "A",
+                    Orden = 6,
+                    TipoParametro = Tablas.TipoParametro.Impuesto
+                };
+                context.Parametros.Add(parametroseis);
+
                 context.SaveChanges();
                 #endregion
 
@@ -79,6 +129,9 @@ namespace pricingCDR
                 #region add servicios
                 List<Tablas.Parametro> parametrosOntime = new List<Tablas.Parametro>();
                 parametrosOntime.Add(parametrouno);
+                parametrosOntime.Add(parametrocuatro);
+                parametrosOntime.Add(parametrocinco);
+                parametrosOntime.Add(parametroseis);
                 context.Servicios.Add(
                     new Tablas.Servicio()
                     {
