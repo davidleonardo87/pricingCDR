@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace pricingCDR.Tablas
 {
-    public partial class Parametro
+    public class Parametro
     {
         [Key]
         public int IdParametro { get; set; }
@@ -21,5 +22,10 @@ namespace pricingCDR.Tablas
         public TipoParametro TipoParametro { get; set; }
         public ICollection<Servicio> Servicios { get; set; }
         public virtual ICollection<OpcionParametro> OpcionesParametro { get; set; }
+
+        #region NotMappedProperties
+        [NotMapped]
+        public bool Check { get; set; }
+        #endregion
     }
 }

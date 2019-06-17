@@ -46,6 +46,7 @@ namespace pricingCDR
                     Cantidad = 0
                 };
                 context.Parametros.Add(parametrodos);
+                
                 var parametrotres = new Tablas.Parametro()
                 {
                     IdParametro = 3,
@@ -53,7 +54,22 @@ namespace pricingCDR
                     Estado = "A",
                     Orden = 3,
                     TipoServicio = Tablas.TipoServicio.OnTime,
-                    TipoParametro = Tablas.TipoParametro.Multiplo
+                    TipoParametro = Tablas.TipoParametro.Multiplo,
+                    OpcionesParametro = new List<Tablas.OpcionParametro>()
+                    {
+                        new Tablas.OpcionParametro()
+                        {
+                            Descripcion = "Costa",
+                            IdParametro = 3,
+                            Valor = 1m
+                        },
+                        new Tablas.OpcionParametro()
+                        {
+                            Descripcion = "Sierra",
+                            IdParametro = 3,
+                            Valor = 1.5m
+                        }
+                    }
                 };
                 context.Parametros.Add(parametrotres);
                 context.SaveChanges();
