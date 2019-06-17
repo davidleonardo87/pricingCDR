@@ -28,8 +28,8 @@ namespace pricingCDR
                     Orden = 1,
                     TipoServicio = Tablas.TipoServicio.OnTime,
                     Valor = "22.00",
-                    Costo = decimal.Parse("22.00"),
-                    TipoParametro = Tablas.TipoParametro.Tiempo,
+                    Costo = 22.00m,
+                    TipoParametro = Tablas.TipoParametro.ValorPorUnidad,
                     Cantidad = 0
                 };
                 context.Parametros.Add(parametrouno);
@@ -41,8 +41,8 @@ namespace pricingCDR
                     Orden = 2,
                     TipoServicio = Tablas.TipoServicio.OnTime,
                     Valor = "1.00",
-                    Costo = decimal.Parse("1.00"),
-                    TipoParametro = Tablas.TipoParametro.Tiempo,
+                    Costo = 1.00m,
+                    TipoParametro = Tablas.TipoParametro.ValorPorUnidad,
                     Cantidad = 0
                 };
                 context.Parametros.Add(parametrodos);
@@ -67,7 +67,7 @@ namespace pricingCDR
                         {
                             Descripcion = "Sierra",
                             IdParametro = 3,
-                            Valor = 1.5m
+                            Valor = 1.2m
                         }
                     }
                 };

@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageOnTime = new System.Windows.Forms.TabPage();
             this.groupBoxConsultaOnTime = new System.Windows.Forms.GroupBox();
             this.groupBoxParametrosOnTime = new System.Windows.Forms.GroupBox();
+            this.buttonShowReport = new System.Windows.Forms.Button();
+            this.btnOnTimeShowData = new System.Windows.Forms.Button();
+            this.dataGridViewParametersOnTime = new System.Windows.Forms.DataGridView();
             this.groupBoxServicios = new System.Windows.Forms.GroupBox();
             this.dataGridViewOnTime = new System.Windows.Forms.DataGridView();
             this.ButtonColumnServiciosOnTime = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -43,18 +46,18 @@
             this.groupBoxOffLine = new System.Windows.Forms.GroupBox();
             this.dataGridViewOffLine = new System.Windows.Forms.DataGridView();
             this.ButtonColumnServiciosOffLine = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewParametersOnTime = new System.Windows.Forms.DataGridView();
-            this.buttonShowReport = new System.Windows.Forms.Button();
-            this.btnOnTimeShowData = new System.Windows.Forms.Button();
+            this.dataGridViewConsultaOnTime = new System.Windows.Forms.DataGridView();
             this.tabControlMain.SuspendLayout();
             this.tabPageOnTime.SuspendLayout();
+            this.groupBoxConsultaOnTime.SuspendLayout();
             this.groupBoxParametrosOnTime.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParametersOnTime)).BeginInit();
             this.groupBoxServicios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOnTime)).BeginInit();
             this.tabPageOffLine.SuspendLayout();
             this.groupBoxOffLine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOffLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParametersOnTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsultaOnTime)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -87,6 +90,7 @@
             // 
             this.groupBoxConsultaOnTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxConsultaOnTime.Controls.Add(this.dataGridViewConsultaOnTime);
             this.groupBoxConsultaOnTime.Location = new System.Drawing.Point(277, 298);
             this.groupBoxConsultaOnTime.Name = "groupBoxConsultaOnTime";
             this.groupBoxConsultaOnTime.Size = new System.Drawing.Size(517, 105);
@@ -109,6 +113,50 @@
             this.groupBoxParametrosOnTime.TabStop = false;
             this.groupBoxParametrosOnTime.Text = "Parametros";
             this.groupBoxParametrosOnTime.Visible = false;
+            // 
+            // buttonShowReport
+            // 
+            this.buttonShowReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonShowReport.BackgroundImage = global::pricingCDR.Properties.Resources.reporteazul;
+            this.buttonShowReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonShowReport.Location = new System.Drawing.Point(113, 223);
+            this.buttonShowReport.Name = "buttonShowReport";
+            this.buttonShowReport.Size = new System.Drawing.Size(101, 63);
+            this.buttonShowReport.TabIndex = 2;
+            this.buttonShowReport.UseVisualStyleBackColor = true;
+            this.buttonShowReport.Visible = false;
+            this.buttonShowReport.Click += new System.EventHandler(this.buttonShowReport_Click);
+            // 
+            // btnOnTimeShowData
+            // 
+            this.btnOnTimeShowData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnOnTimeShowData.BackgroundImage = global::pricingCDR.Properties.Resources.buscarverde;
+            this.btnOnTimeShowData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOnTimeShowData.Location = new System.Drawing.Point(6, 223);
+            this.btnOnTimeShowData.Name = "btnOnTimeShowData";
+            this.btnOnTimeShowData.Size = new System.Drawing.Size(101, 63);
+            this.btnOnTimeShowData.TabIndex = 1;
+            this.btnOnTimeShowData.UseVisualStyleBackColor = true;
+            this.btnOnTimeShowData.Click += new System.EventHandler(this.btnOnTimeShowData_Click);
+            // 
+            // dataGridViewParametersOnTime
+            // 
+            this.dataGridViewParametersOnTime.AllowUserToAddRows = false;
+            this.dataGridViewParametersOnTime.AllowUserToDeleteRows = false;
+            this.dataGridViewParametersOnTime.AllowUserToResizeColumns = false;
+            this.dataGridViewParametersOnTime.AllowUserToResizeRows = false;
+            this.dataGridViewParametersOnTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewParametersOnTime.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridViewParametersOnTime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewParametersOnTime.ColumnHeadersVisible = false;
+            this.dataGridViewParametersOnTime.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewParametersOnTime.MultiSelect = false;
+            this.dataGridViewParametersOnTime.Name = "dataGridViewParametersOnTime";
+            this.dataGridViewParametersOnTime.RowHeadersVisible = false;
+            this.dataGridViewParametersOnTime.Size = new System.Drawing.Size(505, 198);
+            this.dataGridViewParametersOnTime.TabIndex = 0;
             // 
             // groupBoxServicios
             // 
@@ -135,15 +183,15 @@
             this.dataGridViewOnTime.ColumnHeadersVisible = false;
             this.dataGridViewOnTime.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ButtonColumnServiciosOnTime});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewOnTime.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOnTime.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewOnTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewOnTime.Location = new System.Drawing.Point(3, 16);
             this.dataGridViewOnTime.MultiSelect = false;
@@ -221,15 +269,15 @@
             this.dataGridViewOffLine.ColumnHeadersVisible = false;
             this.dataGridViewOffLine.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ButtonColumnServiciosOffLine});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewOffLine.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOffLine.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewOffLine.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewOffLine.Location = new System.Drawing.Point(3, 16);
             this.dataGridViewOffLine.MultiSelect = false;
@@ -248,49 +296,17 @@
             this.ButtonColumnServiciosOffLine.Name = "ButtonColumnServiciosOffLine";
             this.ButtonColumnServiciosOffLine.ReadOnly = true;
             // 
-            // dataGridViewParametersOnTime
+            // dataGridViewConsultaOnTime
             // 
-            this.dataGridViewParametersOnTime.AllowUserToAddRows = false;
-            this.dataGridViewParametersOnTime.AllowUserToDeleteRows = false;
-            this.dataGridViewParametersOnTime.AllowUserToResizeColumns = false;
-            this.dataGridViewParametersOnTime.AllowUserToResizeRows = false;
-            this.dataGridViewParametersOnTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewParametersOnTime.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridViewParametersOnTime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewParametersOnTime.ColumnHeadersVisible = false;
-            this.dataGridViewParametersOnTime.Location = new System.Drawing.Point(6, 19);
-            this.dataGridViewParametersOnTime.MultiSelect = false;
-            this.dataGridViewParametersOnTime.Name = "dataGridViewParametersOnTime";
-            this.dataGridViewParametersOnTime.RowHeadersVisible = false;
-            this.dataGridViewParametersOnTime.Size = new System.Drawing.Size(505, 198);
-            this.dataGridViewParametersOnTime.TabIndex = 0;
-            // 
-            // buttonShowReport
-            // 
-            this.buttonShowReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonShowReport.BackgroundImage = global::pricingCDR.Properties.Resources.reporteazul;
-            this.buttonShowReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonShowReport.Location = new System.Drawing.Point(113, 223);
-            this.buttonShowReport.Name = "buttonShowReport";
-            this.buttonShowReport.Size = new System.Drawing.Size(101, 63);
-            this.buttonShowReport.TabIndex = 2;
-            this.buttonShowReport.UseVisualStyleBackColor = true;
-            this.buttonShowReport.Visible = false;
-            this.buttonShowReport.Click += new System.EventHandler(this.buttonShowReport_Click);
-            // 
-            // btnOnTimeShowData
-            // 
-            this.btnOnTimeShowData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOnTimeShowData.BackgroundImage = global::pricingCDR.Properties.Resources.buscarverde;
-            this.btnOnTimeShowData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOnTimeShowData.Location = new System.Drawing.Point(6, 223);
-            this.btnOnTimeShowData.Name = "btnOnTimeShowData";
-            this.btnOnTimeShowData.Size = new System.Drawing.Size(101, 63);
-            this.btnOnTimeShowData.TabIndex = 1;
-            this.btnOnTimeShowData.UseVisualStyleBackColor = true;
-            this.btnOnTimeShowData.Click += new System.EventHandler(this.btnOnTimeShowData_Click);
+            this.dataGridViewConsultaOnTime.AllowUserToAddRows = false;
+            this.dataGridViewConsultaOnTime.AllowUserToDeleteRows = false;
+            this.dataGridViewConsultaOnTime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewConsultaOnTime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewConsultaOnTime.Location = new System.Drawing.Point(3, 16);
+            this.dataGridViewConsultaOnTime.Name = "dataGridViewConsultaOnTime";
+            this.dataGridViewConsultaOnTime.ReadOnly = true;
+            this.dataGridViewConsultaOnTime.Size = new System.Drawing.Size(511, 86);
+            this.dataGridViewConsultaOnTime.TabIndex = 0;
             // 
             // FrmMain
             // 
@@ -306,13 +322,15 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.tabControlMain.ResumeLayout(false);
             this.tabPageOnTime.ResumeLayout(false);
+            this.groupBoxConsultaOnTime.ResumeLayout(false);
             this.groupBoxParametrosOnTime.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParametersOnTime)).EndInit();
             this.groupBoxServicios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOnTime)).EndInit();
             this.tabPageOffLine.ResumeLayout(false);
             this.groupBoxOffLine.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOffLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParametersOnTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsultaOnTime)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,6 +353,7 @@
         private System.Windows.Forms.DataGridView dataGridViewParametersOnTime;
         private System.Windows.Forms.Button btnOnTimeShowData;
         private System.Windows.Forms.Button buttonShowReport;
+        private System.Windows.Forms.DataGridView dataGridViewConsultaOnTime;
     }
 }
 
