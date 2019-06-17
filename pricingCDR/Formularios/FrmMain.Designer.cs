@@ -28,28 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageOnTime = new System.Windows.Forms.TabPage();
-            this.tabPageOffLine = new System.Windows.Forms.TabPage();
+            this.groupBoxConsultaOnTime = new System.Windows.Forms.GroupBox();
+            this.groupBoxParametrosOnTime = new System.Windows.Forms.GroupBox();
+            this.groupBoxServicios = new System.Windows.Forms.GroupBox();
             this.dataGridViewOnTime = new System.Windows.Forms.DataGridView();
             this.ButtonColumnServiciosOnTime = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.groupBoxServicios = new System.Windows.Forms.GroupBox();
+            this.tabPageOffLine = new System.Windows.Forms.TabPage();
+            this.groupBoxConsultaOffLine = new System.Windows.Forms.GroupBox();
+            this.groupBoxParametrosOffLine = new System.Windows.Forms.GroupBox();
             this.groupBoxOffLine = new System.Windows.Forms.GroupBox();
             this.dataGridViewOffLine = new System.Windows.Forms.DataGridView();
             this.ButtonColumnServiciosOffLine = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.groupBoxParametrosOnTime = new System.Windows.Forms.GroupBox();
-            this.groupBoxParametrosOffLine = new System.Windows.Forms.GroupBox();
-            this.groupBoxConsultaOnTime = new System.Windows.Forms.GroupBox();
-            this.groupBoxConsultaOffLine = new System.Windows.Forms.GroupBox();
+            this.dataGridViewParametersOnTime = new System.Windows.Forms.DataGridView();
+            this.buttonShowReport = new System.Windows.Forms.Button();
+            this.btnOnTimeShowData = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPageOnTime.SuspendLayout();
-            this.tabPageOffLine.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOnTime)).BeginInit();
+            this.groupBoxParametrosOnTime.SuspendLayout();
             this.groupBoxServicios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOnTime)).BeginInit();
+            this.tabPageOffLine.SuspendLayout();
             this.groupBoxOffLine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOffLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParametersOnTime)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -78,18 +83,44 @@
             this.tabPageOnTime.Text = "OnTime";
             this.tabPageOnTime.UseVisualStyleBackColor = true;
             // 
-            // tabPageOffLine
+            // groupBoxConsultaOnTime
             // 
-            this.tabPageOffLine.Controls.Add(this.groupBoxConsultaOffLine);
-            this.tabPageOffLine.Controls.Add(this.groupBoxParametrosOffLine);
-            this.tabPageOffLine.Controls.Add(this.groupBoxOffLine);
-            this.tabPageOffLine.Location = new System.Drawing.Point(4, 22);
-            this.tabPageOffLine.Name = "tabPageOffLine";
-            this.tabPageOffLine.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageOffLine.Size = new System.Drawing.Size(800, 409);
-            this.tabPageOffLine.TabIndex = 1;
-            this.tabPageOffLine.Text = "OffLine";
-            this.tabPageOffLine.UseVisualStyleBackColor = true;
+            this.groupBoxConsultaOnTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxConsultaOnTime.Location = new System.Drawing.Point(277, 298);
+            this.groupBoxConsultaOnTime.Name = "groupBoxConsultaOnTime";
+            this.groupBoxConsultaOnTime.Size = new System.Drawing.Size(517, 105);
+            this.groupBoxConsultaOnTime.TabIndex = 3;
+            this.groupBoxConsultaOnTime.TabStop = false;
+            this.groupBoxConsultaOnTime.Visible = false;
+            // 
+            // groupBoxParametrosOnTime
+            // 
+            this.groupBoxParametrosOnTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxParametrosOnTime.Controls.Add(this.buttonShowReport);
+            this.groupBoxParametrosOnTime.Controls.Add(this.btnOnTimeShowData);
+            this.groupBoxParametrosOnTime.Controls.Add(this.dataGridViewParametersOnTime);
+            this.groupBoxParametrosOnTime.Location = new System.Drawing.Point(277, 6);
+            this.groupBoxParametrosOnTime.Name = "groupBoxParametrosOnTime";
+            this.groupBoxParametrosOnTime.Size = new System.Drawing.Size(517, 293);
+            this.groupBoxParametrosOnTime.TabIndex = 2;
+            this.groupBoxParametrosOnTime.TabStop = false;
+            this.groupBoxParametrosOnTime.Text = "Parametros";
+            this.groupBoxParametrosOnTime.Visible = false;
+            // 
+            // groupBoxServicios
+            // 
+            this.groupBoxServicios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBoxServicios.Controls.Add(this.dataGridViewOnTime);
+            this.groupBoxServicios.Location = new System.Drawing.Point(6, 6);
+            this.groupBoxServicios.Name = "groupBoxServicios";
+            this.groupBoxServicios.Size = new System.Drawing.Size(265, 397);
+            this.groupBoxServicios.TabIndex = 1;
+            this.groupBoxServicios.TabStop = false;
+            this.groupBoxServicios.Text = "SERVICIOS";
             // 
             // dataGridViewOnTime
             // 
@@ -104,15 +135,15 @@
             this.dataGridViewOnTime.ColumnHeadersVisible = false;
             this.dataGridViewOnTime.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ButtonColumnServiciosOnTime});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewOnTime.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOnTime.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewOnTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewOnTime.Location = new System.Drawing.Point(3, 16);
             this.dataGridViewOnTime.MultiSelect = false;
@@ -131,17 +162,39 @@
             this.ButtonColumnServiciosOnTime.Name = "ButtonColumnServiciosOnTime";
             this.ButtonColumnServiciosOnTime.ReadOnly = true;
             // 
-            // groupBoxServicios
+            // tabPageOffLine
             // 
-            this.groupBoxServicios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBoxServicios.Controls.Add(this.dataGridViewOnTime);
-            this.groupBoxServicios.Location = new System.Drawing.Point(6, 6);
-            this.groupBoxServicios.Name = "groupBoxServicios";
-            this.groupBoxServicios.Size = new System.Drawing.Size(265, 397);
-            this.groupBoxServicios.TabIndex = 1;
-            this.groupBoxServicios.TabStop = false;
-            this.groupBoxServicios.Text = "SERVICIOS";
+            this.tabPageOffLine.Controls.Add(this.groupBoxConsultaOffLine);
+            this.tabPageOffLine.Controls.Add(this.groupBoxParametrosOffLine);
+            this.tabPageOffLine.Controls.Add(this.groupBoxOffLine);
+            this.tabPageOffLine.Location = new System.Drawing.Point(4, 22);
+            this.tabPageOffLine.Name = "tabPageOffLine";
+            this.tabPageOffLine.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageOffLine.Size = new System.Drawing.Size(800, 409);
+            this.tabPageOffLine.TabIndex = 1;
+            this.tabPageOffLine.Text = "OffLine";
+            this.tabPageOffLine.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxConsultaOffLine
+            // 
+            this.groupBoxConsultaOffLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxConsultaOffLine.Location = new System.Drawing.Point(277, 262);
+            this.groupBoxConsultaOffLine.Name = "groupBoxConsultaOffLine";
+            this.groupBoxConsultaOffLine.Size = new System.Drawing.Size(517, 138);
+            this.groupBoxConsultaOffLine.TabIndex = 4;
+            this.groupBoxConsultaOffLine.TabStop = false;
+            this.groupBoxConsultaOffLine.Visible = false;
+            // 
+            // groupBoxParametrosOffLine
+            // 
+            this.groupBoxParametrosOffLine.Location = new System.Drawing.Point(277, 6);
+            this.groupBoxParametrosOffLine.Name = "groupBoxParametrosOffLine";
+            this.groupBoxParametrosOffLine.Size = new System.Drawing.Size(517, 250);
+            this.groupBoxParametrosOffLine.TabIndex = 3;
+            this.groupBoxParametrosOffLine.TabStop = false;
+            this.groupBoxParametrosOffLine.Text = "Parametros";
+            this.groupBoxParametrosOffLine.Visible = false;
             // 
             // groupBoxOffLine
             // 
@@ -168,15 +221,15 @@
             this.dataGridViewOffLine.ColumnHeadersVisible = false;
             this.dataGridViewOffLine.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ButtonColumnServiciosOffLine});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewOffLine.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOffLine.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewOffLine.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewOffLine.Location = new System.Drawing.Point(3, 16);
             this.dataGridViewOffLine.MultiSelect = false;
@@ -195,56 +248,55 @@
             this.ButtonColumnServiciosOffLine.Name = "ButtonColumnServiciosOffLine";
             this.ButtonColumnServiciosOffLine.ReadOnly = true;
             // 
-            // groupBoxParametrosOnTime
+            // dataGridViewParametersOnTime
             // 
-            this.groupBoxParametrosOnTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridViewParametersOnTime.AllowUserToAddRows = false;
+            this.dataGridViewParametersOnTime.AllowUserToDeleteRows = false;
+            this.dataGridViewParametersOnTime.AllowUserToResizeColumns = false;
+            this.dataGridViewParametersOnTime.AllowUserToResizeRows = false;
+            this.dataGridViewParametersOnTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxParametrosOnTime.Location = new System.Drawing.Point(277, 6);
-            this.groupBoxParametrosOnTime.Name = "groupBoxParametrosOnTime";
-            this.groupBoxParametrosOnTime.Size = new System.Drawing.Size(517, 286);
-            this.groupBoxParametrosOnTime.TabIndex = 2;
-            this.groupBoxParametrosOnTime.TabStop = false;
-            this.groupBoxParametrosOnTime.Text = "Parametros";
-            this.groupBoxParametrosOnTime.Visible = false;
+            this.dataGridViewParametersOnTime.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridViewParametersOnTime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewParametersOnTime.ColumnHeadersVisible = false;
+            this.dataGridViewParametersOnTime.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewParametersOnTime.MultiSelect = false;
+            this.dataGridViewParametersOnTime.Name = "dataGridViewParametersOnTime";
+            this.dataGridViewParametersOnTime.RowHeadersVisible = false;
+            this.dataGridViewParametersOnTime.Size = new System.Drawing.Size(505, 198);
+            this.dataGridViewParametersOnTime.TabIndex = 0;
             // 
-            // groupBoxParametrosOffLine
+            // buttonShowReport
             // 
-            this.groupBoxParametrosOffLine.Location = new System.Drawing.Point(277, 6);
-            this.groupBoxParametrosOffLine.Name = "groupBoxParametrosOffLine";
-            this.groupBoxParametrosOffLine.Size = new System.Drawing.Size(517, 250);
-            this.groupBoxParametrosOffLine.TabIndex = 3;
-            this.groupBoxParametrosOffLine.TabStop = false;
-            this.groupBoxParametrosOffLine.Text = "Parametros";
-            this.groupBoxParametrosOffLine.Visible = false;
+            this.buttonShowReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonShowReport.BackgroundImage = global::pricingCDR.Properties.Resources.reporteazul;
+            this.buttonShowReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonShowReport.Location = new System.Drawing.Point(113, 223);
+            this.buttonShowReport.Name = "buttonShowReport";
+            this.buttonShowReport.Size = new System.Drawing.Size(101, 63);
+            this.buttonShowReport.TabIndex = 2;
+            this.buttonShowReport.UseVisualStyleBackColor = true;
+            this.buttonShowReport.Visible = false;
+            this.buttonShowReport.Click += new System.EventHandler(this.buttonShowReport_Click);
             // 
-            // groupBoxConsultaOnTime
+            // btnOnTimeShowData
             // 
-            this.groupBoxConsultaOnTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxConsultaOnTime.Location = new System.Drawing.Point(277, 298);
-            this.groupBoxConsultaOnTime.Name = "groupBoxConsultaOnTime";
-            this.groupBoxConsultaOnTime.Size = new System.Drawing.Size(517, 105);
-            this.groupBoxConsultaOnTime.TabIndex = 3;
-            this.groupBoxConsultaOnTime.TabStop = false;
-            this.groupBoxConsultaOnTime.Visible = false;
-            // 
-            // groupBoxConsultaOffLine
-            // 
-            this.groupBoxConsultaOffLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxConsultaOffLine.Location = new System.Drawing.Point(277, 262);
-            this.groupBoxConsultaOffLine.Name = "groupBoxConsultaOffLine";
-            this.groupBoxConsultaOffLine.Size = new System.Drawing.Size(517, 138);
-            this.groupBoxConsultaOffLine.TabIndex = 4;
-            this.groupBoxConsultaOffLine.TabStop = false;
-            this.groupBoxConsultaOffLine.Visible = false;
+            this.btnOnTimeShowData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnOnTimeShowData.BackgroundImage = global::pricingCDR.Properties.Resources.buscarverde;
+            this.btnOnTimeShowData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOnTimeShowData.Location = new System.Drawing.Point(6, 223);
+            this.btnOnTimeShowData.Name = "btnOnTimeShowData";
+            this.btnOnTimeShowData.Size = new System.Drawing.Size(101, 63);
+            this.btnOnTimeShowData.TabIndex = 1;
+            this.btnOnTimeShowData.UseVisualStyleBackColor = true;
+            this.btnOnTimeShowData.Click += new System.EventHandler(this.btnOnTimeShowData_Click);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(832, 459);
             this.Controls.Add(this.tabControlMain);
             this.MinimumSize = new System.Drawing.Size(848, 498);
@@ -254,11 +306,13 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.tabControlMain.ResumeLayout(false);
             this.tabPageOnTime.ResumeLayout(false);
-            this.tabPageOffLine.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOnTime)).EndInit();
+            this.groupBoxParametrosOnTime.ResumeLayout(false);
             this.groupBoxServicios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOnTime)).EndInit();
+            this.tabPageOffLine.ResumeLayout(false);
             this.groupBoxOffLine.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOffLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParametersOnTime)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -278,6 +332,9 @@
         private System.Windows.Forms.GroupBox groupBoxParametrosOffLine;
         private System.Windows.Forms.GroupBox groupBoxConsultaOnTime;
         private System.Windows.Forms.GroupBox groupBoxConsultaOffLine;
+        private System.Windows.Forms.DataGridView dataGridViewParametersOnTime;
+        private System.Windows.Forms.Button btnOnTimeShowData;
+        private System.Windows.Forms.Button buttonShowReport;
     }
 }
 

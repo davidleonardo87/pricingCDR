@@ -23,7 +23,7 @@ namespace pricingCDR
                 var parametrouno = new Tablas.Parametro()
                 {
                     IdParametro = 1,
-                    Descripcion = "Segundos",
+                    Descripcion = "Mensualidad",
                     Estado = "A",
                     Orden = 1,
                     TipoServicio = Tablas.TipoServicio.OnTime,
@@ -36,7 +36,7 @@ namespace pricingCDR
                 var parametrodos = new Tablas.Parametro()
                 {
                     IdParametro = 2,
-                    Descripcion = "Días",
+                    Descripcion = "Diario",
                     Estado = "A",
                     Orden = 2,
                     TipoServicio = Tablas.TipoServicio.OnTime,
@@ -141,6 +141,8 @@ namespace pricingCDR
                 #region add serviciosOffLine
                 List<Tablas.Parametro> parametros = new List<Tablas.Parametro>();
                 parametros.Add(parametrouno);
+                parametros.Add(parametrodos);
+                parametros.Add(parametrotres);
                 context.Servicios.Add(
                     new Tablas.Servicio()
                     {
@@ -208,10 +210,7 @@ namespace pricingCDR
                 //save detalle ontime
                 context.SaveChanges();
                 #endregion
-
-
-
-
+                
             }
         }
 

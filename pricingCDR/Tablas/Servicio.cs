@@ -18,5 +18,9 @@ namespace pricingCDR.Tablas
 
         public ICollection<Parametro> Parametros { get; set; }
 
+        public Servicio()
+        {
+            Parametros = new List<Parametro>();
+        }
     }
 }

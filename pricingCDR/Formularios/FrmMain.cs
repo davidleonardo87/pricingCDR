@@ -32,10 +32,10 @@ namespace pricingCDR.Formularios
                         FuncionesGlobales.Seed();
                     }
                     //crea un query de los servicios activos de la base de datos
-                    var queryServiciosActivos = (from entity in context.Servicios
-                                        where entity.Estado.Equals("A")
-                                        select  entity).AsQueryable();
-
+                    var queryServiciosActivos = (from entity in context.Servicios.Include("Parametros")
+                                                 where entity.Estado.Equals("A")
+                                                 select  entity).AsQueryable();
+                    
                     #region show OnTime Services
                     // crea otro q  uery de los servicios tipo OnTime
                     var queryServiciosOnTime = (from entity in queryServiciosActivos
@@ -100,7 +100,21 @@ namespace pricingCDR.Formularios
             }
             Tablas.Servicio servicio = cell.Tag as Tablas.Servicio;
             this.groupBoxParametrosOnTime.Text = "Parametros del servicio \"" + servicio.Descripcion + "\"";
-
+            this.groupBoxParametrosOnTime.Visible = true;
+            this.groupBoxConsultaOnTime.Visible = true;
+            this.dataGridViewParametersOnTime.Rows.Clear();
+            int i = 0;
+            while (i<servicio.Parametros.Count)
+            {
+                if (this.dataGridViewParametersOnTime.Columns.Count == 0)
+                {
+                    DataGridViewButtonColumn columnaBoton = new DataGridViewButtonColumn();
+                    this.dataGridViewParametersOnTime.Columns.Add(columnaBoton);
+                }
+                this.dataGridViewParametersOnTime.Rows.Add();
+                this.dataGridViewParametersOnTime.Rows[i].Cells[0].Value = servicio.Parametros.ElementAt(i).Descripcion;
+                i++;
+            }
         }
 
         private void dataGridViewOffLine_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -113,6 +127,16 @@ namespace pricingCDR.Formularios
             }
             Tablas.Servicio servicio = cell.Tag as Tablas.Servicio;
             this.groupBoxParametrosOffLine.Text = "Parametros del servicio \"" + servicio.Descripcion + "\"";
+        }
+
+        private void btnOnTimeShowData_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonShowReport_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
