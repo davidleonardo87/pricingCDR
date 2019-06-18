@@ -100,9 +100,11 @@
     <Compile Include="Tablas\OpcionParametro.cs" />
     <Compile Include="Tablas\Parametro.cs" />
     <Compile Include="Tablas\ParametroAdicional.cs" />
+    <Compile Include="Tablas\ReportRow.cs" />
     <Compile Include="Tablas\Servicio.cs" />
     <Compile Include="Tablas\TipoParametro.cs" />
     <Compile Include="Tablas\TipoServicio.cs" />
+    <Compile Include="ValoresGlobales.cs" />
     <EmbeddedResource Include="Formularios\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +123,8 @@
     </Compile>
     <EmbeddedResource Include="Reportes\RptOnTime.rdlc" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\pricingCDR.Tablas.Parametro.datasource" />
+    <None Include="Properties\DataSources\pricingCDR.Tablas.ReportRow.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -306,7 +306,24 @@ namespace pricingCDR.Formularios
 
         private void buttonShowReport_Click(object sender, EventArgs e)
         {
-
+            FrmReport frmReport = new FrmReport(ValoresGlobales.Reportes.OnTime);
+            List<Tablas.ReportRow> entityList = new List<Tablas.ReportRow>();
+            foreach(DataGridViewRow row in this.dataGridViewConsultaOnTime.Rows)
+            {
+                foreach(DataGridViewCell cell in row.Cells)
+                {
+                    entityList.Add(
+                        new Tablas.ReportRow()
+                        {
+                            Indice = 1,
+                            ColumName = cell.DataGridView.Columns[cell.ColumnIndex].HeaderText,
+                            Value = cell.Value.ToString(),
+                            Orden = cell.ColumnIndex
+                        });
+                }
+            }
+            frmReport.AddDataSource(ValoresGlobales.Reportes.DataSourceNames.OnTime,entityList);
+            frmReport.Show();
         }
 
     }
