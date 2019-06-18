@@ -16,5 +16,11 @@ namespace pricingCDR.Formularios
         {
             InitializeComponent();
         }
+
+        private void FrmReport_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewerVisor.RefreshReport();
+        }
     }
 }
