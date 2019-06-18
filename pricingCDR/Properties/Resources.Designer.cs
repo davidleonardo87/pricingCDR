@@ -73,6 +73,16 @@ namespace pricingCDR.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clean {
+            get {
+                object obj = ResourceManager.GetObject("clean", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap reporteazul {
             get {
                 object obj = ResourceManager.GetObject("reporteazul", resourceCulture);

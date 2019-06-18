@@ -28,18 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageOnTime = new System.Windows.Forms.TabPage();
             this.groupBoxConsultaOnTime = new System.Windows.Forms.GroupBox();
             this.dataGridViewConsultaOnTime = new System.Windows.Forms.DataGridView();
             this.groupBoxParametrosOnTime = new System.Windows.Forms.GroupBox();
-            this.buttonShowReportOnTime = new System.Windows.Forms.Button();
-            this.btnOnTimeShowData = new System.Windows.Forms.Button();
             this.dataGridViewParametersOnTime = new System.Windows.Forms.DataGridView();
             this.GridColumnCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.GridColumnLabel = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +51,9 @@
             this.groupBoxOffLine = new System.Windows.Forms.GroupBox();
             this.dataGridViewOffLine = new System.Windows.Forms.DataGridView();
             this.ButtonColumnServiciosOffLine = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.buttonCleanOnTime = new System.Windows.Forms.Button();
+            this.buttonShowReportOnTime = new System.Windows.Forms.Button();
+            this.btnOnTimeShowData = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPageOnTime.SuspendLayout();
             this.groupBoxConsultaOnTime.SuspendLayout();
@@ -123,6 +124,7 @@
             this.groupBoxParametrosOnTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxParametrosOnTime.Controls.Add(this.buttonCleanOnTime);
             this.groupBoxParametrosOnTime.Controls.Add(this.buttonShowReportOnTime);
             this.groupBoxParametrosOnTime.Controls.Add(this.btnOnTimeShowData);
             this.groupBoxParametrosOnTime.Controls.Add(this.dataGridViewParametersOnTime);
@@ -133,31 +135,6 @@
             this.groupBoxParametrosOnTime.TabStop = false;
             this.groupBoxParametrosOnTime.Text = "Parametros";
             this.groupBoxParametrosOnTime.Visible = false;
-            // 
-            // buttonShowReportOnTime
-            // 
-            this.buttonShowReportOnTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonShowReportOnTime.BackgroundImage = global::pricingCDR.Properties.Resources.reporteazul;
-            this.buttonShowReportOnTime.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonShowReportOnTime.Location = new System.Drawing.Point(113, 223);
-            this.buttonShowReportOnTime.Name = "buttonShowReportOnTime";
-            this.buttonShowReportOnTime.Size = new System.Drawing.Size(101, 63);
-            this.buttonShowReportOnTime.TabIndex = 2;
-            this.buttonShowReportOnTime.UseVisualStyleBackColor = true;
-            this.buttonShowReportOnTime.Visible = false;
-            this.buttonShowReportOnTime.Click += new System.EventHandler(this.buttonShowReport_Click);
-            // 
-            // btnOnTimeShowData
-            // 
-            this.btnOnTimeShowData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOnTimeShowData.BackgroundImage = global::pricingCDR.Properties.Resources.buscarverde;
-            this.btnOnTimeShowData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOnTimeShowData.Location = new System.Drawing.Point(6, 223);
-            this.btnOnTimeShowData.Name = "btnOnTimeShowData";
-            this.btnOnTimeShowData.Size = new System.Drawing.Size(101, 63);
-            this.btnOnTimeShowData.TabIndex = 1;
-            this.btnOnTimeShowData.UseVisualStyleBackColor = true;
-            this.btnOnTimeShowData.Click += new System.EventHandler(this.btnOnTimeShowData_Click);
             // 
             // dataGridViewParametersOnTime
             // 
@@ -175,14 +152,14 @@
             this.GridColumnCheck,
             this.GridColumnLabel,
             this.GridColumnValue});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewParametersOnTime.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewParametersOnTime.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewParametersOnTime.Location = new System.Drawing.Point(6, 19);
             this.dataGridViewParametersOnTime.MultiSelect = false;
             this.dataGridViewParametersOnTime.Name = "dataGridViewParametersOnTime";
@@ -197,10 +174,10 @@
             // 
             // GridColumnLabel
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.GridColumnLabel.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.GridColumnLabel.DefaultCellStyle = dataGridViewCellStyle6;
             this.GridColumnLabel.HeaderText = "label";
             this.GridColumnLabel.Name = "GridColumnLabel";
             this.GridColumnLabel.ReadOnly = true;
@@ -208,9 +185,9 @@
             // 
             // GridColumnValue
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1);
-            this.GridColumnValue.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(1);
+            this.GridColumnValue.DefaultCellStyle = dataGridViewCellStyle7;
             this.GridColumnValue.HeaderText = "value";
             this.GridColumnValue.MaxInputLength = 10;
             this.GridColumnValue.MinimumWidth = 80;
@@ -242,15 +219,15 @@
             this.dataGridViewOnTime.ColumnHeadersVisible = false;
             this.dataGridViewOnTime.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ButtonColumnServiciosOnTime});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewOnTime.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOnTime.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewOnTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewOnTime.Location = new System.Drawing.Point(3, 16);
             this.dataGridViewOnTime.MultiSelect = false;
@@ -328,15 +305,15 @@
             this.dataGridViewOffLine.ColumnHeadersVisible = false;
             this.dataGridViewOffLine.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ButtonColumnServiciosOffLine});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewOffLine.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOffLine.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewOffLine.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewOffLine.Location = new System.Drawing.Point(3, 16);
             this.dataGridViewOffLine.MultiSelect = false;
@@ -354,6 +331,43 @@
             this.ButtonColumnServiciosOffLine.HeaderText = "ButtonColumn";
             this.ButtonColumnServiciosOffLine.Name = "ButtonColumnServiciosOffLine";
             this.ButtonColumnServiciosOffLine.ReadOnly = true;
+            // 
+            // buttonCleanOnTime
+            // 
+            this.buttonCleanOnTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonCleanOnTime.BackgroundImage = global::pricingCDR.Properties.Resources.clean;
+            this.buttonCleanOnTime.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCleanOnTime.Location = new System.Drawing.Point(410, 223);
+            this.buttonCleanOnTime.Name = "buttonCleanOnTime";
+            this.buttonCleanOnTime.Size = new System.Drawing.Size(101, 63);
+            this.buttonCleanOnTime.TabIndex = 3;
+            this.buttonCleanOnTime.UseVisualStyleBackColor = true;
+            this.buttonCleanOnTime.Click += new System.EventHandler(this.buttonCleanOnTime_Click);
+            // 
+            // buttonShowReportOnTime
+            // 
+            this.buttonShowReportOnTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonShowReportOnTime.BackgroundImage = global::pricingCDR.Properties.Resources.reporteazul;
+            this.buttonShowReportOnTime.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonShowReportOnTime.Location = new System.Drawing.Point(113, 223);
+            this.buttonShowReportOnTime.Name = "buttonShowReportOnTime";
+            this.buttonShowReportOnTime.Size = new System.Drawing.Size(101, 63);
+            this.buttonShowReportOnTime.TabIndex = 2;
+            this.buttonShowReportOnTime.UseVisualStyleBackColor = true;
+            this.buttonShowReportOnTime.Visible = false;
+            this.buttonShowReportOnTime.Click += new System.EventHandler(this.buttonShowReport_Click);
+            // 
+            // btnOnTimeShowData
+            // 
+            this.btnOnTimeShowData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnOnTimeShowData.BackgroundImage = global::pricingCDR.Properties.Resources.buscarverde;
+            this.btnOnTimeShowData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOnTimeShowData.Location = new System.Drawing.Point(6, 223);
+            this.btnOnTimeShowData.Name = "btnOnTimeShowData";
+            this.btnOnTimeShowData.Size = new System.Drawing.Size(101, 63);
+            this.btnOnTimeShowData.TabIndex = 1;
+            this.btnOnTimeShowData.UseVisualStyleBackColor = true;
+            this.btnOnTimeShowData.Click += new System.EventHandler(this.btnOnTimeShowData_Click);
             // 
             // FrmMain
             // 
@@ -404,6 +418,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn GridColumnCheck;
         private System.Windows.Forms.DataGridViewTextBoxColumn GridColumnLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn GridColumnValue;
+        private System.Windows.Forms.Button buttonCleanOnTime;
     }
 }
 

@@ -326,5 +326,10 @@ namespace pricingCDR.Formularios
             frmReport.Show();
         }
 
+        private void buttonCleanOnTime_Click(object sender, EventArgs e)
+        {
+            DataOnTimeClean();
+            ServicioSelected(LastServicioSelected);
+        }
     }
 }
