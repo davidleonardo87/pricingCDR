@@ -8,10 +8,10 @@ namespace pricingCDR.Tablas
 {
     public enum TipoParametro
     {
-        Descuento = 1,
-        ValorPorUnidad = 2,
-        Tiempo = 3,
-        Multiplo = 4,
+        ValorPorUnidad = 1,
+        Tiempo = 2,
+        Multiplo = 3,
+        Descuento = 4,
         Impuesto = 5
     }
 }

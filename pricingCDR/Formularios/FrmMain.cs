@@ -125,7 +125,7 @@ namespace pricingCDR.Formularios
             this.groupBoxParametrosOnTime.Visible = true;
             this.groupBoxConsultaOnTime.Visible = true;
             this.dataGridViewParametersOnTime.Rows.Clear();
-            foreach (Tablas.Parametro p in servicio.Parametros)
+            foreach (Tablas.Parametro p in servicio.Parametros.OrderBy(x=>x.TipoParametro))
             {
                 var parametro = p;
                 this.dataGridViewParametersOnTime.Rows.Add();
@@ -184,6 +184,24 @@ namespace pricingCDR.Formularios
                         switch (parametro.TipoParametro)
                         {
                             case Tablas.TipoParametro.ValorPorUnidad :
+                                {
+                                    var valoringresado = row.Cells[2].Value;
+                                    parametro.NuevoValor = valoringresado;
+                                    if (parametro.TieneOpciones == false)
+                                    {
+                                        calculo += decimal.Parse(valoringresado.ToString());
+                                    }
+                                    else
+                                    {
+                                        int selectedvalue = (int)valoringresado;
+                                        var opcion = parametro.OpcionesParametro.First(x => x.IdOpcionParametro == selectedvalue);
+                                        decimal valor = opcion.Valor;
+                                        calculo += valor;
+                                        parametro.Valor = opcion.Descripcion;
+                                    }
+                                    break;
+                                }
+                            case Tablas.TipoParametro.Tiempo:
                                 {
                                     var valoringresado = row.Cells[2].Value;
                                     parametro.NuevoValor = valoringresado;
