@@ -300,37 +300,6 @@ namespace pricingCDR
                 
             }
         }
-
-        //public static void CrearBase()
-        //{
-        //    string path = ConfigurationManager.AppSettings["pathdb"].ToString();
-        //    bool exists = Directory.Exists(path);
-        //    if (!exists)
-        //    {
-        //        Directory.CreateDirectory(path);
-        //    }
-        //    string file = ConfigurationManager.AppSettings["filedb"].ToString();
-        //    string realfilename = "";
-        //    if (!path[path.Length-1].ToString().Contains(@"\"))
-        //    {
-        //        realfilename = (path + @"\"+ file);
-        //    }
-        //    else
-        //    {
-        //        realfilename = (path + file);
-        //    }
-        //    bool existsfile = File.Exists(realfilename);
-        //    if (!existsfile)
-        //    {
-                
-        //        CrearEstructura();
-        //    }
-        //}
-
-        //private static void CrearEstructura()
-        //{
-
-        //}
-
+        
     }
 }
