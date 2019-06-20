@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace pricingCDR.Formularios
 {
@@ -32,9 +33,13 @@ namespace pricingCDR.Formularios
                         // si no existe la crea y agrega algunos registros
                         context.Database.CreateIfNotExists();
                         FuncionesGlobales.Seed();
+                        var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                        config.AppSettings.Settings["basecreada"].Value = "true";
+                        config.Save(ConfigurationSaveMode.Modified);
                     }
                     //crea un query de los servicios activos de la base de datos
-                    var queryServiciosActivos = (from entity in context.Servicios.Include("Parametros").Include("Parametros.OpcionesParametro")
+                    //var queryServiciosActivos = (from entity in context.Servicios.Include("Parametros").Include("Parametros.OpcionesParametro")
+                    var queryServiciosActivos = (from entity in context.Servicios.Include("Parametros.OpcionesParametro")
                                                  where entity.Estado.Equals("A")
                                                  select  entity).AsQueryable();
                     
@@ -131,7 +136,7 @@ namespace pricingCDR.Formularios
                 this.dataGridViewParametersOnTime.Rows.Add();
                 int c = this.dataGridViewParametersOnTime.Rows.Count - 1;
                 this.dataGridViewParametersOnTime.Rows[c].Cells[1].Value = parametro.Descripcion;
-                if (parametro.TieneOpciones)
+                if (parametro.OpcionesParametro!=null && parametro.OpcionesParametro.Count>0)
                 {
                     List<Tablas.OpcionParametro> opcionParametros = parametro.OpcionesParametro.ToList();
                     var comboCell = new DataGridViewComboBoxCell();

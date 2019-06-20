@@ -46,7 +46,6 @@ namespace pricingCDR
                     Cantidad = 0
                 };
                 context.Parametros.Add(parametrodos);
-                
                 var parametrotres = new Tablas.Parametro()
                 {
                     IdParametro = 3,
@@ -107,10 +106,30 @@ namespace pricingCDR
                     Estado = "A",
                     Orden = 5,
                     Valor = "0.12",
-                    TipoParametro = Tablas.TipoParametro.Impuesto
+                    TipoParametro = Tablas.TipoParametro.Impuesto,
+                    OpcionesParametro = new List<Tablas.OpcionParametro>()
+                    {
+                        new Tablas.OpcionParametro()
+                        {
+                            Descripcion = "12%",
+                            IdParametro = 5,
+                            Valor = 0.12m
+                        },
+                        new Tablas.OpcionParametro()
+                        {
+                            Descripcion = "14%",
+                            IdParametro = 5,
+                            Valor = 0.14m
+                        },
+                        new Tablas.OpcionParametro()
+                        {
+                            Descripcion = "0%",
+                            IdParametro = 5,
+                            Valor = 0m
+                        }
+                    }
                 };
                 context.Parametros.Add(parametrocinco);
-
                 var parametroseis = new Tablas.Parametro()
                 {
                     IdParametro = 6,
